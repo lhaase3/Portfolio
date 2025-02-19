@@ -1,5 +1,12 @@
+'use client';
+
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";
+import { useState } from "react";
+import animationData from '@/data/confetti.json'
+import MagicButton from "./MagicButton";
+import { IoCopyOutline } from "react-icons/io5";
+import Lottie from "react-lottie";
 
 export const BentoGrid = ({
   className,
@@ -106,6 +113,15 @@ export const BentoGridItem = ({
 //       </div>
 //     </div>
 //   );
+
+const [copied, setCopied] = useState(false);
+const handleCopy = () => {
+    const text = "loganhaase3@gmail.com";
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    // navigator.clipboard.writeText('loganhaase3@gmail.com');
+}
+
 return (
     <div
       className={cn(
@@ -117,7 +133,7 @@ return (
         backgroundImage: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(89,89,124,1) 26%, rgba(0,212,255,1) 100%)',
       }}
     >
-      <div className={`${id === 6 ? 'flex justify-center h-full' : ''}`}>
+      <div className={`${id == 6 && 'flex justify-center'} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -178,10 +194,29 @@ return (
               </div>
             </div>
           )}
+          {id === 6 && (
+            <div className="mt-5 relative">
+                <div className={`absolute -bottom-5 right-0`}>
+                    <Lottie options={{
+                        loop: copied,
+                        autoplay: copied,
+                        animationData,
+                        rendererSettings: {
+                            preserveAspectRatio: 'xMidYMid slice',
+                        }
+                    }} />
+                </div>
 
-
-
-        </div>  
+                <MagicButton
+                    title={copied ? 'Email is copied!' : 'Copy my email address'}
+                    icon={<IoCopyOutline/>}
+                    position="left"
+                    handleClick={handleCopy}
+                    otherClasses="!bg-[#161a31]"
+                />
+            </div>
+          )}
+          </div>
       </div>
     </div>
   );  
