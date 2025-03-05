@@ -155,7 +155,7 @@ return (
           </div>
         )}
   
-        {/* Background Gradient Animation for id === 6 */}
+        Background Gradient Animation for id === 6
         {id === 6 && (
           <BackgroundGradientAnimation>
             <div className="absolute z-50 flex items-center justify-center text-white font-bold">
@@ -194,7 +194,7 @@ return (
               </div>
             </div>
           )}
-          {id === 6 && (
+          {/* {id === 6 && (
             <div className="mt-5 relative">
                 <div className={`absolute -bottom-5 right-0`}>
                     <Lottie options={{
@@ -215,7 +215,7 @@ return (
                     otherClasses="!bg-[#161a31]"
                 />
             </div>
-          )}
+          )} */}
           </div>
       </div>
     </div>
