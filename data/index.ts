@@ -7,48 +7,51 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: "I prioritize client collaboration, fostering open communication ",
-      description: "",
+      title: "I am a software engineer with a passion for network systems and web development. I enjoy building scalable applications and solving complex problems.",
+      description: "About",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
       titleClassName: "justify-end",
-      img: "/b1.svg",
+      img: "prof-bg.jpg",
       spareImg: "",
     },
+    /* majoring in comp sci at boulder*/
     {
       id: 2,
-      title: "I'm very flexible with time zone communications",
-      description: "",
+      title: "I am currently a Junior studying Computer Science at CU Boulder.",
+      description: "Education",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-start",
       img: "",
       spareImg: "",
     },
+    /* hobbies */
     {
       id: 3,
-      title: "My tech stack",
-      description: "I constantly try to improve",
+      title: "I am constantly trying to improve.",
+      description: "My Tech Stack",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
       titleClassName: "justify-center",
       img: "",
       spareImg: "",
     },
+    /* Leadership */
     {
       id: 4,
-      title: "Tech enthusiast with a passion for development.",
-      description: "",
+      title: "I am very active and enjoy hiking, surfing, and skiing.",
+      description: "Personal Life",
       className: "lg:col-span-2 md:col-span-3 md:row-span-1",
       imgClassName: "",
       titleClassName: "justify-start",
       img: "/grid.svg",
-      spareImg: "/b4.svg",
+      spareImg: "/prof-surf.png",
     },
-  
+    /* future goals */
     {
       id: 5,
-      title: "Currently building a JS Animation library",
+      title: "I am looking for a full-time software engineering position in the summer of 2025.",
       description: "The Inside Scoop",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -56,16 +59,16 @@ export const navItems = [
       img: "/b5.svg",
       spareImg: "/grid.svg",
     },
-    {
-      id: 6,
-      title: "Do you want to start a project together?",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-      img: "",
-      spareImg: "",
-    },
+    // {
+    //   id: 6,
+    //   title: "Do you want to start a project together?",
+    //   description: "",
+    //   className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    //   imgClassName: "",
+    //   titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    //   img: "",
+    //   spareImg: "",
+    // },
   ];
   
   export const projects = [
@@ -84,74 +87,17 @@ export const navItems = [
       img: "/sc_hs.jpg",
       iconLists: ["/c.svg"],
       link: "https://github.com/lhaase3/GET_server",
-    }
-  ];
-  
-  export const testimonials = [
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-  ];
-  
-  export const companies = [
-    {
-      id: 1,
-      name: "cloudinary",
-      img: "/cloud.svg",
-      nameImg: "/cloudName.svg",
-    },
-    {
-      id: 2,
-      name: "appwrite",
-      img: "/app.svg",
-      nameImg: "/appName.svg",
     },
     {
       id: 3,
-      name: "HOSTINGER",
-      img: "/host.svg",
-      nameImg: "/hostName.svg",
-    },
-    {
-      id: 4,
-      name: "stream",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
-    },
-    {
-      id: 5,
-      name: "docker.",
-      img: "/dock.svg",
-      nameImg: "/dockerName.svg",
+      title: "Mulithreaded HTTP Caching Proxy",
+      des: "This proxy server caches files from a web server, reducing latency and bandwidth usage. It handles multiple clients and serves cached files efficiently.",
+      img: "/caching_prox.jpg",
+      iconLists: ["/c.svg"],
+      link: "https://github.com/lhaase3/caching_proxy/tree/main"
     },
   ];
+  
   
   export const workExperience = [
     {
@@ -173,28 +119,19 @@ export const navItems = [
       title: "Sales Associate - Jack's Surfboarfs",
       desc: " Assisted customers with product selection, including clothes, wetsuits, and surfboards to suit them best.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp3.svg",
+      thumbnail: "/bag3.png",
     },
-    // {
-    //   id: 4,
-    //   title: "Lead Frontend Developer",
-    //   desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    //   className: "md:col-span-2",
-    //   thumbnail: "/exp4.svg",
-    // },
   ];
   
   export const socialMedia = [
     {
       id: 1,
       img: "/git.svg",
+      link: "https://github.com/lhaase3",
     },
     {
       id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
       img: "/link.svg",
+      link: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
     },
   ];

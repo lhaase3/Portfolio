@@ -87,7 +87,7 @@ const Hero = () => {
             {/* Typing Animation for Name */}
             <TextGenerateEffect 
               className="text-center text-[40px] md:text-5xl lg:text-6xl"
-              words="Hello, I am Logan"
+              words="Hello, I am Logan!"
             />
             <p className="text-center tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
               A Computer Science major at University of Colorado Boulder
@@ -96,7 +96,7 @@ const Hero = () => {
             {/* Social Buttons Section */}
             <div className="flex space-x-4 my-4">
               {/* Resume Button */}
-              <Link href="/resume">
+              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <MagicButton title="My Resume" icon={<FaLocationArrow />} position="right" />
             </Link>
   
@@ -111,13 +111,13 @@ const Hero = () => {
               </a>
   
               {/* Email Copy Button */}
-              <button onClick={copyEmail}>
+              <div onClick={copyEmail}>
                 <MagicButton
                   title={copied ? "Copied!" : "Email"}
                   icon={<FaEnvelope />}
                   position="right"
                 />
-              </button>
+              </div>
             </div>
   
             {/* Call to Action */}
