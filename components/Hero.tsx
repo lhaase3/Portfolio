@@ -2,7 +2,6 @@
 
 import MagicButton from "./ui/MagicButton"
 import { Spotlight } from "./ui/spotlight"
-import { TextGenerateEffect } from "./ui/TextGenerateEffect"
 import { FaLocationArrow } from "react-icons/fa";
 import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
@@ -38,10 +37,6 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center relative my-20 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
             {/* Typing Animation for Name */}
-            <TextGenerateEffect 
-              className="text-center text-[40px] md:text-5xl lg:text-6xl"
-              words="Hello, I am Logan!"
-            />
             <p className="text-center tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
               A Computer Science major at University of Colorado Boulder
             </p>
