@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Hero  from "../components/Hero";
-import { FaHome } from "react-icons/fa";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import Grid from "../components/Grid";
 import RecentProjects from "@/components/RecentProjects";

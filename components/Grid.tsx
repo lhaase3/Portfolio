@@ -1,7 +1,6 @@
 import React from 'react'
 import { BentoGrid } from './ui/BentoGrid'
 import { BentoGridItem } from './ui/BentoGrid'
-import { IoGitMerge } from 'react-icons/io5'
 import { gridItems } from '@/data'
 
 const Grid = () => {
