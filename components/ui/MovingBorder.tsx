@@ -69,20 +69,22 @@ export function Button({
   );
 }
 
+type MovingBorderProps = React.SVGProps<SVGSVGElement> & {
+  children: React.ReactNode;
+  duration?: number;
+  rx?: string;
+  ry?: string;
+};
+
 export const MovingBorder = ({
   children,
   duration = 2000,
   rx,
   ry,
   ...otherProps
-}: {
-  children: React.ReactNode;
-  duration?: number;
-  rx?: string;
-  ry?: string;
-  [key: string]: any;
-}) => {
-  const pathRef = useRef<any>();
+}: MovingBorderProps) => {
+
+  const pathRef = useRef<SVGRectElement>(null);
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
