@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";
-import { useState } from "react";
 
 export const BentoGrid = ({
   className,
