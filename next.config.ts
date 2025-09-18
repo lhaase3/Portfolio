@@ -8,6 +8,10 @@ const nextConfig = {
   assetPrefix: isProd ? `/${repo}/` : '',
   images: { unoptimized: true },    // needed for static export
   trailingSlash: true,
+  env: {
+    // handy for <img> tags (see step 3)
+    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repo}` : '',
+  },
 }
 
 export default nextConfig

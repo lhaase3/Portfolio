@@ -1,7 +1,9 @@
+// components/ui/BentoGrid.tsx
 'use client';
 
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";
+import Image from "next/image";
 
 export const BentoGrid = ({
   className,
@@ -12,11 +14,7 @@ export const BentoGrid = ({
 }) => {
   return (
     <div
-    //   className={cn(
-    //     "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
-    //     className
-    //   )}
-    className={cn(
+      className={cn(
         "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto ",
         className
       )}
@@ -47,72 +45,81 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-
-return (
+  return (
     <div
       className={cn(
         "row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
         className
       )}
       style={{
-        background: 'rgb(2,0,36)',
-        backgroundImage: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(89,89,124,1) 26%, rgba(0,212,255,1) 100%)',
+        background: "rgb(2,0,36)",
+        backgroundImage:
+          "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(89,89,124,1) 26%, rgba(0,212,255,1) 100%)",
       }}
     >
-      
-      <div className={`${id == 6 && 'flex justify-center'} h-full`}>
+      <div className={`${id == 6 && "flex justify-center"} h-full`}>
+        {/* Main image layer */}
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
               src={img}
-              alt={img}
-              //className={cn(imgClassName, 'object-cover object-center')}
-              className={cn(imgClassName, 'w-full h-full object-cover')}
-              //style={id === 1 ? { objectPosition: 'left center' } : undefined}
-              //style={id === 1 ? { objectPosition: 'center'} : undefined}
-              style = {{
-                transform: 'scale(1.1)',
-                transition: 'transform 0.3s ease-in-out',
+              alt={typeof title === "string" ? title : "tile image"}
+              fill
+              sizes="(max-width: 1024px) 100vw, 700px"
+              className={cn(imgClassName, "object-cover")}
+              style={{
+                transform: "scale(1.1)",
+                transition: "transform 0.3s ease-in-out",
               }}
-              // className={cn(imgClassName, 'w-full h-full object-cover')}
+              priority={id === 1}
             />
           )}
         </div>
-  
-        {/* Spare Image Section */}
+
+        {/* Spare image (overlay, e.g. id === 5) */}
         {spareImg && (
-          <div className={`absolute right-0 -bottom-5 ${id === 5 ? 'w-full opacity-80' : ''}`}>
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className="object-cover object-center w-full h-full"
-            />
+          <div
+            className={`absolute right-0 -bottom-5 ${id === 5 ? "w-full opacity-80" : ""}`}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={spareImg}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 700px"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
         )}
 
+        {/* Spare image as full background (id === 4) */}
         {spareImg && id === 4 && (
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
-            <img
+            <Image
               src={spareImg}
               alt="surfing"
-              className="w-full h-full object-cover object-bottom"
+              fill
+              sizes="100vw"
+              className="object-cover object-bottom"
             />
           </div>
         )}
 
-
-  
-        {/* Background Gradient Animation for id === 6 */}
+        {/* Background gradient for id === 6 */}
         {id === 6 && (
           <BackgroundGradientAnimation>
-            <div className="absolute z-50 flex items-center justify-center text-white font-bold">
-              {/* Add content here if needed */}
-            </div>
+            <div className="absolute z-50 flex items-center justify-center text-white font-bold" />
           </BackgroundGradientAnimation>
         )}
-  
-        {/* Text Content */}
-        <div className={cn(titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex-col px-5 p-5 lg:p-10')}>
+
+        {/* Text content */}
+        <div
+          className={cn(
+            titleClassName,
+            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex-col px-5 p-5 lg:p-10"
+          )}
+        >
           <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-sx lg:text-base z-10">
             {description}
           </div>
@@ -120,29 +127,35 @@ return (
             {title}
           </div>
 
-          {/* Tech Stack Section (id === 3) */}
+          {/* Tech stack chips (id === 3) */}
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute top-1/2 -translate-y-1/2 -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 lg:gap-2">
-                {['C', 'Python', 'JavaScript'].map((item) => (
-                  <span key={item} className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                {["C", "Python", "JavaScript"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
                     {item}
                   </span>
                 ))}
-                <span className="py-4 px-3 rounded-lg text-center bg-[#272e6f]"/>
+                <span className="py-4 px-3 rounded-lg text-center bg-[#272e6f]" />
               </div>
               <div className="flex flex-col gap-3 lg:gap-2">
-              <span className="py-4 px-3 rounded-lg text-center bg-[#272e6f]"/>
-                {['C++', 'SQL', 'Java'].map((item) => (
-                  <span key={item} className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                <span className="py-4 px-3 rounded-lg text-center bg-[#272e6f]" />
+                {["C++", "SQL", "Java"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
                     {item}
                   </span>
                 ))}
               </div>
             </div>
           )}
-          </div>
+        </div>
       </div>
     </div>
-  );  
+  );
 };
