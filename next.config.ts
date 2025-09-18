@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+// next.config.ts
+const isProd = process.env.NODE_ENV === 'production'
+const repo = 'Portfolio' // <- repo name
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {
+  output: 'export',                 // emit static files
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
+  images: { unoptimized: true },    // needed for static export
+  trailingSlash: true,
+}
 
-export default nextConfig;
+export default nextConfig
