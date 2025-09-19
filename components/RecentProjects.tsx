@@ -1,9 +1,11 @@
 // components/RecentProjects.tsx
-import React from 'react'
-import Image from 'next/image'
-import { projects } from '@/data'
-import { PinContainer } from './ui/3d-pin'
-import { FaLocationArrow } from 'react-icons/fa'
+import React from "react";
+import Image from "next/image";
+import { projects } from "@/data";
+import { PinContainer } from "./ui/3d-pin";
+import { FaLocationArrow } from "react-icons/fa";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // '' locally, '/Portfolio' on Pages
 
 const RecentProjects = () => {
   return (
@@ -23,21 +25,20 @@ const RecentProjects = () => {
                 <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                   {/* Background image */}
                   <Image
-                    src="/bg.png"
+                    src={`${BASE}/bg.png`}
                     alt="Background"
                     fill
                     sizes="(max-width: 640px) 80vw, 570px"
-                    priority={false}
                   />
                 </div>
 
-                {/* Project hero image (positioned over background) */}
+                {/* Project hero image */}
                 <Image
-                  src={img}
+                  src={`${BASE}${img}`}
                   alt={title}
                   fill
                   sizes="(max-width: 640px) 80vw, 570px"
-                  className="z-10 !relative !h-auto !w-auto absolute bottom-0"
+                  className="z-10 object-contain absolute bottom-0"
                 />
               </div>
 
@@ -45,7 +46,9 @@ const RecentProjects = () => {
                 {title}
               </h1>
 
-              <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">{des}</p>
+              <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
+                {des}
+              </p>
 
               <div className="flex items-center justify-between mt-7 mb-3">
                 <div className="flex items-center">
@@ -56,7 +59,7 @@ const RecentProjects = () => {
                       style={{ transform: `translateX(-${5 * index * 2}px)` }}
                     >
                       <Image
-                        src={icon}
+                        src={`${BASE}${icon}`}
                         alt=""
                         width={32}
                         height={32}
@@ -67,7 +70,9 @@ const RecentProjects = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <p className="flex lg:text-lg md:text-xs text-sm text-purple">Check Live Site</p>
+                  <p className="flex lg:text-lg md:text-xs text-sm text-purple">
+                    Check Live Site
+                  </p>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
@@ -76,7 +81,7 @@ const RecentProjects = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecentProjects
+export default RecentProjects;
