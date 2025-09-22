@@ -3,6 +3,8 @@ import React from 'react'
 import Image from 'next/image';
 import { Button } from './ui/MovingBorder';
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // '' locally, '/Portfolio' on Pages
+
 const Experience = () => {
   return (
     <div className='py-20'>
@@ -21,7 +23,7 @@ const Experience = () => {
                 >
                     <div className='flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2'>
                                                 <Image
-                                                    src={card.thumbnail}
+                                                    src={`${BASE}/${card.thumbnail}`}
                                                     alt={card.thumbnail}
                                                     width={128}
                                                     height={128}

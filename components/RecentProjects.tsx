@@ -34,11 +34,11 @@ const RecentProjects = () => {
 
                 {/* Project hero image */}
                 <Image
-                  src={`${BASE}${img}`}
+                  src={`${BASE}/${img}`}
                   alt={title}
                   fill
                   sizes="(max-width: 640px) 80vw, 570px"
-                  className="z-10 object-contain absolute bottom-0"
+                  className="z-10 absolute bottom-0 object-contain"
                 />
               </div>
 
@@ -59,7 +59,7 @@ const RecentProjects = () => {
                       style={{ transform: `translateX(-${5 * index * 2}px)` }}
                     >
                       <Image
-                        src={`${BASE}${icon}`}
+                        src={`${BASE}/${icon}`}
                         alt=""
                         width={32}
                         height={32}

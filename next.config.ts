@@ -4,6 +4,7 @@ const repo = 'Portfolio' // <- repo name
 
 const nextConfig = {
   output: 'export',                 // emit static files
+  distDir: 'docs',                  // export to docs folder for GitHub Pages
   basePath: isProd ? `/${repo}` : '',
   assetPrefix: isProd ? `/${repo}/` : '',
   images: { unoptimized: true },    // needed for static export

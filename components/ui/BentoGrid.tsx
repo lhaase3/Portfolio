@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBG";
 import Image from "next/image";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // '' locally, '/Portfolio' on Pages
+
 export const BentoGrid = ({
   className,
   children,
@@ -62,7 +64,7 @@ export const BentoGridItem = ({
         <div className="w-full h-full absolute">
           {img && (
             <Image
-              src={img}
+              src={`${BASE}/${img}`}
               alt={typeof title === "string" ? title : "tile image"}
               fill
               sizes="(max-width: 1024px) 100vw, 700px"
@@ -83,7 +85,7 @@ export const BentoGridItem = ({
           >
             <div className="relative w-full h-full">
               <Image
-                src={spareImg}
+                src={`${BASE}/${spareImg}`}
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 700px"
@@ -97,7 +99,7 @@ export const BentoGridItem = ({
         {spareImg && id === 4 && (
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
             <Image
-              src={spareImg}
+              src={`${BASE}/${spareImg}`}
               alt="surfing"
               fill
               sizes="100vw"
