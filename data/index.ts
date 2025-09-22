@@ -1,5 +1,6 @@
 export const navItems = [
     { name: "About", link: "#about" },
+    { name: "Skills", link: "#skills" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
   ];
@@ -75,10 +76,41 @@ export const navItems = [
     {
       id: 1,
       title: "Greek List: Web App for Fraternity Rush",
-      des: "A seamless connection between fraternities and new members across the country",
+      des: "A platform connecting fraternities and potential new members, streamlining rush and recruitment management.",
       img: "greeklist-home.png",
-      iconLists: ["next.svg", "tail.svg", "python-5.svg"],
+      iconLists: ["next.svg", "tail.svg", "firebase.svg", "python.svg"],
       link: "https://greeklist.net",
+      architecture: {
+        description: "Full-stack web application built with Next.js and Firebase, deployed on Google Cloud Run and Vercel, designed for scalable fraternity recruitment management.",
+        techStack: [
+          { name: "Next.js 14", purpose: "Frontend framework with server-side rendering and client components" },
+          { name: "Tailwind CSS", purpose: "Utility-first CSS framework for responsive UI design" },
+          { name: "Flask (Python)", purpose: "Backend API handling business logic and integrations" },
+          { name: "Firebase Firestore", purpose: "NoSQL database storing user, fraternity, and event data" },
+          { name: "Firebase Auth", purpose: "User authentication, admin code management, and access control" },
+          { name: "Firebase Storage", purpose: "Headshot and photo storage" },
+          { name: "Google Cloud Run", purpose: "Serverless hosting for backend services" },
+          { name: "Vercel", purpose: "Deployment platform for the Next.js frontend" },
+          { name: "PayPal API", purpose: "Payment processing for rush registration fees" },
+          { name: "SendGrid", purpose: "Transactional and mass email notifications" },
+        ],
+        features: [
+          "Seamless rush registration with PayPal integration",
+          "Fraternity and IFC admin dashboards",
+          "Automated email communication (confirmation, invites, reminders)",
+          "QR code event check-in and attendance tracking",
+          "Pre-bid and bid management system",
+          "Editable fraternity profile pages",
+          "Mobile-friendly design for students on the go"
+        ],
+        challenges: [
+          "Designing a Firestore schema to handle thousands of users, fraternities, and events",
+          "Ensuring secure one-time use and multi-use admin codes",
+          "Implementing real-time updates for user and fraternity dashboards",
+          "Coordinating multiple external integrations (PayPal, SendGrid, Google APIs)",
+          "Handling large-scale rush sign-ups and payments reliably"
+        ]
+      }
     },
     {
       id: 2,
@@ -87,6 +119,28 @@ export const navItems = [
       img: "sc_hs.jpg",
       iconLists: ["c.svg"],
       link: "https://github.com/lhaase3/GET_server",
+      architecture: {
+        description: "High-performance HTTP server implementation in C using POSIX threads for concurrent client handling.",
+        techStack: [
+          { name: "C Programming", purpose: "Core server implementation for performance" },
+          { name: "POSIX Threads", purpose: "Concurrent client request handling" },
+          { name: "Socket Programming", purpose: "Network communication layer" },
+          { name: "HTTP Protocol", purpose: "Standard web communication protocol" }
+        ],
+        features: [
+          "Thread pool for efficient resource management",
+          "HTTP 1.1 protocol compliance",
+          "MIME type detection and proper headers",
+          "Robust error handling (404, 400, 500)",
+          "Configurable thread pool size",
+          "Request logging and monitoring"
+        ],
+        challenges: [
+          "Managing thread synchronization and avoiding race conditions",
+          "Implementing efficient memory management",
+          "Handling edge cases in HTTP parsing"
+        ]
+      }
     },
     {
       id: 3,
@@ -94,7 +148,30 @@ export const navItems = [
       des: "This proxy server caches files from a web server, reducing latency and bandwidth usage. It handles multiple clients and serves cached files efficiently.",
       img: "caching_prox.jpg",
       iconLists: ["c.svg"],
-      link: "https://github.com/lhaase3/caching_proxy/tree/main"
+      link: "https://github.com/lhaase3/caching_proxy/tree/main",
+      architecture: {
+        description: "High-performance caching proxy server built in C that sits between clients and origin servers to optimize performance.",
+        techStack: [
+          { name: "C Programming", purpose: "Low-level performance optimization" },
+          { name: "TCP/HTTP Sockets", purpose: "Client-server communication" },
+          { name: "Hash Tables", purpose: "Efficient cache storage and retrieval" },
+          { name: "LRU Algorithm", purpose: "Cache eviction strategy" }
+        ],
+        features: [
+          "In-memory cache with configurable size limits",
+          "LRU (Least Recently Used) eviction policy",
+          "Cache hit/miss statistics tracking",
+          "Concurrent client handling with threading",
+          "HTTP request/response parsing",
+          "Performance monitoring and logging"
+        ],
+        challenges: [
+          "Implementing efficient cache eviction policies",
+          "Managing memory constraints and preventing leaks",
+          "Ensuring thread-safe cache operations",
+          "Handling HTTP protocol complexities"
+        ]
+      }
     },
     {
       id: 4,
@@ -102,8 +179,75 @@ export const navItems = [
       des: "This program allows the user to input 6 photos, or take 6 photos, of each side of a Rubiks Cube and solves it using a custom algorithm.",
       img: "rubiks-photo.png",
       iconLists: ["python-5.svg", "next.svg"],
-      link: "https://github.com/lhaase3/rubiks-cube-AI"
+      link: "https://github.com/lhaase3/rubiks-cube-AI",
+      architecture: {
+        description: "Computer vision and AI-powered Rubik's Cube solver that processes photos to detect cube state and generates optimal solving sequence.",
+        techStack: [
+          { name: "Python", purpose: "Core algorithm development and image processing" },
+          { name: "OpenCV", purpose: "Computer vision and image analysis" },
+          { name: "NumPy", purpose: "Numerical computations and array operations" },
+          { name: "Next.js", purpose: "Web interface for photo upload and visualization" },
+          { name: "Machine Learning", purpose: "Color detection and cube state recognition" }
+        ],
+        features: [
+          "Photo-based cube state detection",
+          "Custom solving algorithm implementation",
+          "Real-time cube visualization",
+          "Step-by-step solution display",
+          "Camera integration for live capture",
+          "Error handling for invalid cube states"
+        ],
+        challenges: [
+          "Accurate color detection under varying lighting conditions",
+          "Developing efficient cube-solving algorithms",
+          "Handling edge cases in cube state recognition",
+          "Creating intuitive user interface for photo input"
+        ]
+      }
+    }
+  ];
+  
+  export const skills = [
+    {
+      category: "Frontend",
+      technologies: [
+        { name: "Next.js", proficiency: 90, icon: "next.svg" },
+        { name: "React", proficiency: 85, icon: "re.svg" },
+        { name: "TypeScript", proficiency: 80, icon: "ts.svg" },
+        { name: "Tailwind CSS", proficiency: 75, icon: "tail.svg" },
+        { name: "JavaScript", proficiency: 90, icon: "" },
+        { name: "HTML/CSS", proficiency: 85, icon: "" }
+      ]
     },
+    {
+      category: "Backend",
+      technologies: [
+        { name: "Python", proficiency: 90, icon: "python-5.svg" },
+        { name: "C/C++", proficiency: 80, icon: "c.svg" },
+        { name: "Node.js", proficiency: 75, icon: "" },
+        { name: "Flask", proficiency: 85, icon: "" },
+        { name: "Django", proficiency: 65, icon: "" },
+        { name: "FastAPI", proficiency: 70, icon: "" }
+      ]
+    },
+    {
+      category: "Database & Cloud",
+      technologies: [
+        { name: "Firebase", proficiency: 85, icon: "" },
+        { name: "PostgreSQL", proficiency: 70, icon: "" },
+        { name: "AWS S3", proficiency: 65, icon: "" },
+        { name: "MongoDB", proficiency: 65, icon: "" }
+      ]
+    },
+    {
+      category: "Tools & Others",
+      technologies: [
+        { name: "Git", proficiency: 90, icon: "git.svg" },
+        { name: "Docker", proficiency: 65, icon: "dock.svg" },
+        { name: "OpenCV", proficiency: 75, icon: "" },
+        { name: "Linux", proficiency: 80, icon: "" }
+      ]
+    }
   ];
   
   
