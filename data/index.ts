@@ -2,8 +2,22 @@ export const navItems = [
     { name: "About", link: "#about" },
     { name: "Skills", link: "#skills" },
     { name: "Projects", link: "#projects" },
+    { name: "Experience", link: "#experience" },
+    { name: "GitHub", link: "#github" },
     { name: "Contact", link: "#contact" },
   ];
+
+  export const githubConfig = {
+    username: "lhaase3",
+    displayName: "Logan Haase",
+    showPrivateContributions: false,
+    featuredRepos: [
+      "Greek_List",
+      "GET_server", 
+      "caching_proxy",
+      "rubiks-cube-AI"
+    ]
+  };
   
   export const gridItems = [
     {
@@ -215,8 +229,8 @@ export const navItems = [
         { name: "React", proficiency: 85, icon: "re.svg" },
         { name: "TypeScript", proficiency: 80, icon: "ts.svg" },
         { name: "Tailwind CSS", proficiency: 75, icon: "tail.svg" },
-        { name: "JavaScript", proficiency: 90, icon: "" },
-        { name: "HTML/CSS", proficiency: 85, icon: "" }
+        { name: "JavaScript", proficiency: 90, icon: "javascript.svg" },
+        { name: "HTML/CSS", proficiency: 85, icon: "html.svg" }
       ]
     },
     {
@@ -224,19 +238,19 @@ export const navItems = [
       technologies: [
         { name: "Python", proficiency: 90, icon: "python-5.svg" },
         { name: "C/C++", proficiency: 80, icon: "c.svg" },
-        { name: "Node.js", proficiency: 75, icon: "" },
-        { name: "Flask", proficiency: 85, icon: "" },
-        { name: "Django", proficiency: 65, icon: "" },
-        { name: "FastAPI", proficiency: 70, icon: "" }
+        { name: "Node.js", proficiency: 75, icon: "nodejs.svg" },
+        { name: "Flask", proficiency: 85, icon: "flask.svg" },
+        { name: "Django", proficiency: 65, icon: "django.svg" },
+        { name: "FastAPI", proficiency: 70, icon: "fastapi.svg" }
       ]
     },
     {
       category: "Database & Cloud",
       technologies: [
-        { name: "Firebase", proficiency: 85, icon: "" },
-        { name: "PostgreSQL", proficiency: 70, icon: "" },
-        { name: "AWS S3", proficiency: 65, icon: "" },
-        { name: "MongoDB", proficiency: 65, icon: "" }
+        { name: "Firebase", proficiency: 85, icon: "firebase.svg" },
+        { name: "PostgreSQL", proficiency: 70, icon: "postgresql.svg" },
+        { name: "AWS S3", proficiency: 65, icon: "aws.svg" },
+        { name: "MongoDB", proficiency: 65, icon: "mongodb.svg" }
       ]
     },
     {
@@ -244,8 +258,8 @@ export const navItems = [
       technologies: [
         { name: "Git", proficiency: 90, icon: "git.svg" },
         { name: "Docker", proficiency: 65, icon: "dock.svg" },
-        { name: "OpenCV", proficiency: 75, icon: "" },
-        { name: "Linux", proficiency: 80, icon: "" }
+        { name: "OpenCV", proficiency: 75, icon: "opencv.svg" },
+        { name: "Linux", proficiency: 80, icon: "linux.svg" }
       ]
     }
   ];

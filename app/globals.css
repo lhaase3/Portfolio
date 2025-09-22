@@ -93,6 +93,19 @@
     background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
   }
 
+  /* GitHub contribution grid */
+  .grid-cols-53 {
+    grid-template-columns: repeat(53, minmax(0, 1fr));
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
   /* .testing-container {
     background-color: black !important;
     height: 100vh;

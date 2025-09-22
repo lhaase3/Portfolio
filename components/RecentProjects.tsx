@@ -46,81 +46,79 @@ const RecentProjects = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
+            className="sm:w-[570px] w-[80vw] flex flex-col items-center"
           >
-            <PinContainer title={project.link} href={project.link}>
-              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
-                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
-                  {/* Background image */}
+            <div className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]">
+              <PinContainer title={project.link} href={project.link}>
+                <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
+                  <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
+                    {/* Background image */}
+                    <Image
+                      src={`${BASE}/bg.png`}
+                      alt="Background"
+                      fill
+                      sizes="(max-width: 640px) 80vw, 570px"
+                    />
+                  </div>
+
+                  {/* Project hero image */}
                   <Image
-                    src={`${BASE}/bg.png`}
-                    alt="Background"
+                    src={`${BASE}/${project.img}`}
+                    alt={project.title}
                     fill
                     sizes="(max-width: 640px) 80vw, 570px"
+                    className="z-10 absolute bottom-0 object-contain"
                   />
                 </div>
 
-                {/* Project hero image */}
-                <Image
-                  src={`${BASE}/${project.img}`}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 640px) 80vw, 570px"
-                  className="z-10 absolute bottom-0 object-contain"
-                />
+                <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                  {project.title}
+                </h1>
+
+                <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
+                  {project.des}
+                </p>
+
+                <div className="flex items-center justify-between mt-7 mb-3">
+                  <div className="flex items-center">
+                    {project.iconLists.map((icon: string, index: number) => (
+                      <div
+                        key={icon}
+                        className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                        style={{ transform: `translateX(-${5 * index * 2}px)` }}
+                      >
+                        <Image
+                          src={`${BASE}/${icon}`}
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="p-2"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-center items-center">
+                    <p className="flex lg:text-lg md:text-xs text-sm text-purple">
+                      Check Live Site
+                    </p>
+                    <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  </div>
+                </div>
+              </PinContainer>
+            </div>
+
+            {/* Learn More Button - Outside PinContainer */}
+            {project.architecture && (
+              <div className="mt-4 sm:w-[570px] w-[80vw]">
+                <button
+                  onClick={() => openModal(project)}
+                  className="w-full bg-purple/20 hover:bg-purple/30 border border-purple/50 rounded-lg py-3 px-6 text-purple font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple/25"
+                >
+                  Learn More
+                </button>
               </div>
-
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {project.title}
-              </h1>
-
-              <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
-                {project.des}
-              </p>
-
-              <div className="flex items-center justify-between mt-7 mb-3">
-                <div className="flex items-center">
-                  {project.iconLists.map((icon: string, index: number) => (
-                    <div
-                      key={icon}
-                      className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                      style={{ transform: `translateX(-${5 * index * 2}px)` }}
-                    >
-                      <Image
-                        src={`${BASE}/${icon}`}
-                        alt=""
-                        width={32}
-                        height={32}
-                        className="p-2"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-lg md:text-xs text-sm text-purple">
-                    Check Live Site
-                  </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
-                </div>
-              </div>
-
-              {/* Learn More Button */}
-              {project.architecture && (
-                <div className="mt-4">
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      openModal(project);
-                    }}
-                    className="w-full bg-purple/20 hover:bg-purple/30 border border-purple/50 rounded-lg py-2 px-4 text-purple font-medium transition-all duration-300 hover:scale-105"
-                  >
-                    Learn More
-                  </button>
-                </div>
-              )}
-            </PinContainer>
+            )}
           </div>
         ))}
       </div>
