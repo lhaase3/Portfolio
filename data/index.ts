@@ -96,6 +96,14 @@ export const navItems = [
       iconLists: ["c.svg"],
       link: "https://github.com/lhaase3/caching_proxy/tree/main"
     },
+    {
+      id: 4,
+      title: "Rubiks Cube Solver",
+      des: "This program allows the user to input 6 photos, or take 6 photos, of each side of a Rubiks Cube and solves it using a custom algorithm.",
+      img: "rubiks-photo.png",
+      iconLists: ["python-5.svg", "next.svg"],
+      link: "https://github.com/lhaase3/rubiks-cube-AI"
+    },
   ];
   
   
