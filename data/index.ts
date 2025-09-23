@@ -128,6 +128,45 @@ export const navItems = [
     },
     {
       id: 2,
+      title: "SatMon: Satellite Telemetry & Anomaly Detection",
+      des: "Backend-first platform that ingests satellite telemetry, stores it in Postgres, and flags anomalies with statistical and ML detectors. 🚀 Currently in active development.",
+      img: "satmon.png",
+      iconLists: ["python.svg", "fastapi.svg", "postgresql.svg", "dock.svg"],
+      link: "https://github.com/lhaase3/satmon",
+      architecture: {
+        description: "Service-oriented backend that normalizes telemetry into PostgreSQL and exposes queryable APIs for channels, time windows, and anomaly windows. Detectors (rolling z-score, Isolation Forest) run over recent data and persist results for downstream dashboards and alerts. Currently expanding with real-time streaming capabilities and enhanced ML models.",
+        techStack: [
+          { name: "FastAPI", purpose: "REST API for /channels, /timeseries, /anomalies" },
+          { name: "PostgreSQL", purpose: "Time-series storage for normalized telemetry" },
+          { name: "SQLAlchemy", purpose: "ORM models and schema management" },
+          { name: "Uvicorn", purpose: "ASGI server with hot reload for local dev" },
+          { name: "Pandas", purpose: "Feature engineering and rolling stats" },
+          { name: "scikit-learn", purpose: "Isolation Forest anomaly detection" },
+          { name: "Docker", purpose: "Local Postgres container; future worker services" },
+          { name: "Alembic (planned)", purpose: "Database migrations as schema evolves" },
+          { name: "Telemanom / SatNOGS / CelesTrak (planned)", purpose: "Real mission/labeled feeds for ingest" }
+        ],
+        features: [
+          "Normalized channel & telemetry tables (per-mission, per-sensor)",
+          "CSV and mission-loader ingestion pipelines",
+          "Anomaly detectors: rolling z-score + Isolation Forest with window grouping",
+          "Query APIs for channels, time series, and anomaly windows (with method filter)",
+          "Swagger docs for easy exploration",
+          "Dockerized Postgres for consistent local setup",
+          "🔧 In Development: Real-time streaming ingest and enhanced ML models"
+        ],
+        challenges: [
+          "Designing a schema that scales across missions and thousands of channels",
+          "Robust ingestion from heterogeneous sources and formats",
+          "Tuning sensitivity vs. false positives per channel",
+          "Efficient querying/windowing over long time ranges",
+          "Future: streaming ingest, alert debouncing, and per-channel thresholds",
+          "🚀 Current Focus: Implementing Kafka streaming and advanced anomaly detection"
+        ]
+      }
+    },
+    {
+      id: 3,
       title: "Multithreaded Server Client",
       des: "This multithreaded server handles multiple clients making GET requests. It serves files with headers detailing file type, size, and status codes (e.g., 200, 404, 400).",
       img: "sc_hs.jpg",
@@ -157,7 +196,7 @@ export const navItems = [
       }
     },
     {
-      id: 3,
+      id: 4,
       title: "Mulithreaded HTTP Caching Proxy",
       des: "This proxy server caches files from a web server, reducing latency and bandwidth usage. It handles multiple clients and serves cached files efficiently.",
       img: "caching_prox.jpg",
@@ -188,7 +227,7 @@ export const navItems = [
       }
     },
     {
-      id: 4,
+      id: 5,
       title: "Rubiks Cube Solver",
       des: "This program allows the user to input 6 photos, or take 6 photos, of each side of a Rubiks Cube and solves it using a custom algorithm.",
       img: "rubiks-photo.png",
@@ -218,7 +257,7 @@ export const navItems = [
           "Creating intuitive user interface for photo input"
         ]
       }
-    }
+    },
   ];
   
   export const skills = [
