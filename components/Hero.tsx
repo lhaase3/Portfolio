@@ -38,7 +38,7 @@ const Hero = () => {
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
             {/* Typing Animation for Name */}
             <p className="text-center tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-              A Computer Science major at University of Colorado Boulder
+              pursuing a BS in Computer Science from CU Boulder
             </p>
   
             {/* Social Buttons Section */}

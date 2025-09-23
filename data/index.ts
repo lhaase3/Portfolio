@@ -22,7 +22,7 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: "I am a software engineer with a passion for network systems and web development. I enjoy building scalable applications and solving complex problems.",
+      title: "I am a software engineer with a passion for artificial intelligence, network systems and web development. I enjoy building scalable applications and solving complex problems.",
       description: "About",
       className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
       imgClassName: "w-full h-full",
