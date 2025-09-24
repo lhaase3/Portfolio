@@ -13,6 +13,7 @@ export const navItems = [
     showPrivateContributions: false,
     featuredRepos: [
       "Greek_List",
+      "satmon",
       "GET_server", 
       "caching_proxy",
       "rubiks-cube-AI"
