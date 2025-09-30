@@ -17,6 +17,7 @@ type Project = {
   img: string;
   iconLists: string[];
   link: string;
+  githubLink?: string; // Optional separate GitHub link
   architecture?: {
     description: string;
     techStack: { name: string; purpose: string }[];
@@ -203,14 +204,28 @@ const RecentProjects = () => {
 
             {/* Action Buttons */}
             <div className="flex gap-4 mt-6">
+              {/* Live Site Button - if different from GitHub */}
+              {selectedProject.githubLink && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center"
+                >
+                  View Live Site
+                </a>
+              )}
+              
+              {/* GitHub/Source Code Button */}
               <a
-                href={selectedProject.link}
+                href={selectedProject.githubLink || selectedProject.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-purple hover:bg-purple/80 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center"
               >
                 View Source Code
               </a>
+              
               <button
                 onClick={closeModal}
                 className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"

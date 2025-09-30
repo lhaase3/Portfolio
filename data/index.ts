@@ -129,40 +129,47 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "SatMon: Satellite Telemetry & Anomaly Detection",
-      des: "Backend-first platform that ingests satellite telemetry, stores it in Postgres, and flags anomalies with statistical and ML detectors. 🚀 Currently in active development.",
-      img: "satmon.png",
-      iconLists: ["python.svg", "fastapi.svg", "postgresql.svg", "dock.svg"],
-      link: "https://github.com/lhaase3/satmon",
+      title: "SatMon: Real-Time Satellite Telemetry & Space Data Platform",
+      des: "Full-stack aerospace platform combining live NASA/SpaceX APIs, ML-powered anomaly detection, and interactive 3D ISS tracking. Features real-time space data integration, orbital visualization, and production-ready telemetry monitoring. 🚀 Production deployment with live space data.",
+      img: "satmon-og-logo.png",
+      iconLists: ["python.svg", "fastapi.svg", "postgresql.svg", "threejs.svg", "vercel.svg"],
+      link: "https://satmon-anomaly-detection.vercel.app/",
+      githubLink: "https://github.com/lhaase3/satmon",
       architecture: {
-        description: "Service-oriented backend that normalizes telemetry into PostgreSQL and exposes queryable APIs for channels, time windows, and anomaly windows. Detectors (rolling z-score, Isolation Forest) run over recent data and persist results for downstream dashboards and alerts. Currently expanding with real-time streaming capabilities and enhanced ML models.",
+        description: "Production aerospace platform that integrates live NASA/SpaceX APIs with advanced telemetry analytics. Features real-time ISS tracking via 3D Earth visualization, automated space data ingestion, and ML-powered anomaly detection. Deployed on Vercel with serverless architecture for scalable space data processing.",
         techStack: [
+          { name: "NASA APIs", purpose: "Live ISS position, crew data, and Mars rover telemetry" },
+          { name: "SpaceX API", purpose: "Real-time launch data and mission information" },
+          { name: "Three.js", purpose: "3D Earth visualization with orbital ISS tracking" },
+          { name: "Vercel Serverless", purpose: "Production deployment with auto-scaling APIs" },
           { name: "FastAPI", purpose: "REST API for /channels, /timeseries, /anomalies" },
           { name: "PostgreSQL", purpose: "Time-series storage for normalized telemetry" },
-          { name: "SQLAlchemy", purpose: "ORM models and schema management" },
-          { name: "Uvicorn", purpose: "ASGI server with hot reload for local dev" },
-          { name: "Pandas", purpose: "Feature engineering and rolling stats" },
-          { name: "scikit-learn", purpose: "Isolation Forest anomaly detection" },
-          { name: "Docker", purpose: "Local Postgres container; future worker services" },
-          { name: "Alembic (planned)", purpose: "Database migrations as schema evolves" },
-          { name: "Telemanom / SatNOGS / CelesTrak (planned)", purpose: "Real mission/labeled feeds for ingest" }
+          { name: "Chart.js", purpose: "Interactive telemetry visualization and anomaly display" },
+          { name: "Pandas + scikit-learn", purpose: "Isolation Forest and z-score anomaly detection" },
+          { name: "Real-time APIs", purpose: "60-second auto-refresh of live space data" },
+          { name: "Responsive Design", purpose: "Glass morphism UI with mobile optimization" }
         ],
         features: [
-          "Normalized channel & telemetry tables (per-mission, per-sensor)",
-          "CSV and mission-loader ingestion pipelines",
-          "Anomaly detectors: rolling z-score + Isolation Forest with window grouping",
-          "Query APIs for channels, time series, and anomaly windows (with method filter)",
-          "Swagger docs for easy exploration",
-          "Dockerized Postgres for consistent local setup",
-          "🔧 In Development: Real-time streaming ingest and enhanced ML models"
+          "Live NASA ISS position API integration (lat/lng updates every 60s)",
+          "SpaceX mission data with launch success tracking",
+          "Mars Perseverance rover Sol progression and mission status",
+          "ML anomaly detection: Isolation Forest + rolling z-score analysis",
+          "Serverless architecture on Vercel with auto-scaling endpoints",
+          "Interactive controls: Follow ISS, pause rotation, reset view",
+          "Real-time telemetry charts with anomaly highlighting",
+          "Professional UI with glass morphism effects and starfield background",
+          "Responsive design optimized for desktop and mobile viewing",
+          "Interactive 3D Earth with real-time ISS orbital tracking"
         ],
         challenges: [
-          "Designing a schema that scales across missions and thousands of channels",
-          "Robust ingestion from heterogeneous sources and formats",
-          "Tuning sensitivity vs. false positives per channel",
-          "Efficient querying/windowing over long time ranges",
-          "Future: streaming ingest, alert debouncing, and per-channel thresholds",
-          "🚀 Current Focus: Implementing Kafka streaming and advanced anomaly detection"
+          "✅ Solved: Integrating multiple space APIs (NASA ISS, SpaceX, Mars) with fallback systems",
+          "✅ Solved: Real-time 3D coordinate transformation from lat/lng to orbital positions", 
+          "✅ Solved: Production deployment with serverless functions and CORS handling",
+          "✅ Solved: Orbital mechanics simulation when NASA APIs are unavailable",
+          "Current: Optimizing 3D rendering performance for complex Earth textures",
+          "Future: Kafka streaming for real-time telemetry ingest from ground stations",
+          "Future: Enhanced ML models with per-satellite anomaly thresholds",
+          "Future: Multi-mission support for Starlink, GPS, and weather satellites"
         ]
       }
     },
@@ -329,7 +336,7 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Sales Associate - Jack's Surfboarfs",
+      title: "Sales Associate - Jack's Surfboards",
       desc: " Assisted customers with product selection, including clothes, wetsuits, and surfboards to suit them best.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "bag3.png",
