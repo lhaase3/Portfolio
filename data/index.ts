@@ -131,9 +131,9 @@ export const navItems = [
       id: 2,
       title: "SatMon: Real-Time Satellite Telemetry & Space Data Platform",
       des: "Full-stack aerospace platform combining live NASA/SpaceX APIs, ML-powered anomaly detection, and interactive 3D ISS tracking. Features real-time space data integration, orbital visualization, and production-ready telemetry monitoring. 🚀 Production deployment with live space data.",
-      img: "satmon-og-logo.png",
+      img: "satmon-complex-logo.png",
       iconLists: ["python.svg", "fastapi.svg", "postgresql.svg", "threejs.svg", "vercel.svg"],
-      link: "https://satmon-anomaly-detection.vercel.app/",
+      link: "https://satmon.space/",
       githubLink: "https://github.com/lhaase3/satmon",
       architecture: {
         description: "Production aerospace platform that integrates live NASA/SpaceX APIs with advanced telemetry analytics. Features real-time ISS tracking via 3D Earth visualization, automated space data ingestion, and ML-powered anomaly detection. Deployed on Vercel with serverless architecture for scalable space data processing.",
