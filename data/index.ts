@@ -92,7 +92,7 @@ export const navItems = [
       id: 1,
       title: "Greek List: Web App for Fraternity Rush",
       des: "A platform connecting fraternities and potential new members, streamlining rush and recruitment management.",
-      img: "greeklist-home.png",
+      img: "greek_list_logo.png",
       iconLists: ["next.svg", "tail.svg", "firebase.svg", "python.svg"],
       link: "https://greeklist.net",
       architecture: {
