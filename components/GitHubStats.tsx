@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 import { githubConfig } from "@/data";
 
 interface GitHubUser {
@@ -42,11 +43,7 @@ const GitHubStats = () => {
   const [totalStars, setTotalStars] = useState(0);
   const [totalForks, setTotalForks] = useState(0);
 
-  useEffect(() => {
-    fetchGitHubData();
-  }, []);
-
-  const fetchGitHubData = async () => {
+  const fetchGitHubData = useCallback(async () => {
     try {
       // Fetch user data
       const userResponse = await fetch(`https://api.github.com/users/${githubConfig.username}`);
@@ -81,7 +78,11 @@ const GitHubStats = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchGitHubData();
+  }, [fetchGitHubData]);
 
   const generateMockContributions = () => {
     const contributions: ContributionDay[] = [];
@@ -167,9 +168,12 @@ const GitHubStats = () => {
         {user && (
           <div className="bg-black/50 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
             <div className="flex flex-col md:flex-row items-center gap-6">
-              <img
+              <Image
                 src={user.avatar_url}
                 alt={user.name}
+                width={96}
+                height={96}
+                unoptimized
                 className="w-24 h-24 rounded-full border-2 border-purple"
               />
               <div className="flex-1 text-center md:text-left">
