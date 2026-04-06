@@ -23,12 +23,13 @@ export const navItems = [
   export const gridItems = [
     {
       id: 1,
-      title: "I am a software engineer with a passion for artificial intelligence, network systems and web development. I enjoy building scalable applications and solving complex problems.",
+      title: "I build backend systems, APIs, and data platforms that move from idea to real users at scale. I’ve worked across software engineering roles developing backend systems, APIs, and data pipelines. Most recently, I built and operate StudentList, a SaaS platform serving 1,900+ users and generating $100K+ in value for the organizations that use it. During my internship at Polaris Electro-Optics, I developed backend systems for ingesting and processing large scientific datasets, helping scientists automate analysis workflows and improve reproducibility. I’m focused on backend engineering, distributed systems, data infrastructure, and AI-driven platforms, and I’m seeking a full-time software engineering role where I can keep building scalable systems and impactful products.",
       description: "About",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[50vh]",
       imgClassName: "w-full h-full",
       titleClassName: "justify-end",
-      img: "prof-bg.jpg",
+      titleTextClassName: "text-sm md:text-base lg:text-lg leading-snug max-w-none",
+      img: "",
       spareImg: "",
     },
     /* majoring in comp sci at boulder*/
@@ -42,6 +43,15 @@ export const navItems = [
       img: "",
       spareImg: "",
     },
+    /* data engineering */
+    {
+      id: 7,
+      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+      imgClassName: "w-full h-full",
+      titleClassName: "justify-end",
+      img: "cloud_engineer.jpg",
+      spareImg: "",
+    },
     /* hobbies */
     {
       id: 3,
@@ -52,28 +62,6 @@ export const navItems = [
       titleClassName: "justify-center",
       img: "",
       spareImg: "",
-    },
-    /* Leadership */
-    {
-      id: 4,
-      title: "I am very active and enjoy hiking, surfing, and skiing.",
-      description: "Personal Life",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "grid.svg",
-      spareImg: "prof-surf.png",
-    },
-    /* future goals */
-    {
-      id: 5,
-      title: "I am looking for a full-time software engineering position in the Summer of 2026.",
-      description: "The Inside Scoop",
-      className: "md:col-span-3 md:row-span-2",
-      imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-      titleClassName: "justify-center md:justify-start lg:justify-center",
-      img: "b5.svg",
-      spareImg: "grid.svg",
     },
     // {
     //   id: 6,
@@ -323,23 +311,50 @@ export const navItems = [
     {
       id: 2,
       title: "Software Engineer Intern - Consensus Technology Group",
-      desc: "Developed secure login, registration, and 2FA pages using Supabase for enterprise-grade data center infrastructure management.",
+      desc: "Developed secure login, registration, and 2FA flows using Supabase for enterprise-grade data center infrastructure management. Implemented role-based access controls, improved onboarding UX, and collaborated with the team to harden authentication and session handling.",
       className: "md:col-span-2",
       thumbnail: "exp1.svg",
     },
     {
       id: 3,
       title: "Software Development Intern - Modern Prairie",
-      desc: " Built JavaScript APIs to automate newsletters, sign-ups, product views, and abandoned cart emails Integrated third-party email services for behavior-triggered communications.",
+      desc: "Built JavaScript APIs to automate newsletters, sign-ups, product views, and abandoned-cart emails, integrating third-party email services for behavior-triggered communications. Designed event pipelines and templates to improve segmentation, delivery reliability, and conversion tracking.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "exp2.svg",
     },
     {
       id: 4,
       title: "Sales Associate - Jack's Surfboards",
-      desc: " Assisted customers with product selection, including clothes, wetsuits, and surfboards to suit them best.",
+      desc: "Assisted customers with product selection across apparel, wetsuits, and surfboards, matching gear to skill level, conditions, and budget. Provided product education, handled in-store operations, and maintained a high-touch customer experience.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "bag3.png",
+    },
+  ];
+
+  export const extracurriculars = [
+    {
+      id: 1,
+      title: "Chi Psi Fraternity",
+      role: "Philanthropy Chairman · Apr 2023 – Apr 2024 · Boulder, CO",
+      image: "port_1.jpg",
+      description:
+        "Managed a $3,000 operating budget to plan and execute fundraising events with CU Boulder and local Boulder businesses. Raised $36,000 for the National MS Society through planning, sponsorship outreach, and coordinated member engagement.",
+    },
+    {
+      id: 2,
+      title: "University of Colorado Student Government",
+      role: "Student Government Campaign Manager · Jan 2024 – Apr 2024 · Boulder, CO",
+      image: "port_2.png",
+      description:
+        "Managed a campus-wide campaign website and led a 17-person outreach team to drive student voter engagement through campus-held events. Coordinated messaging, outreach schedules, and event logistics to maximize visibility and participation across campus.",
+    },
+    {
+      id: 3,
+      title: "Huntington Beach Surf Instructor",
+      role: "Surf Instructor · Huntington Beach, CA",
+      image: "prof-surf.png",
+      description:
+        "Surfing since age 7, I’ve always loved the ocean and have stayed connected to it through teaching. I instruct surfers with family friends in Huntington Beach, help beginners build confidence in the water, and used to compete in local surf competitions.",
     },
   ];
   

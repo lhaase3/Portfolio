@@ -7,6 +7,7 @@ import GitHubStats from "@/components/GitHubStats";
 import { navItems } from "@/data";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
+import Extracurriculars from "@/components/Extracurriculars";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
 
       <Hero />
       <Grid />
+      <Extracurriculars />
       <Skills />
       <RecentProjects />
       <Experience />

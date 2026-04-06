@@ -6,7 +6,10 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const Hero = () => {
     const [copied, setCopied] = useState(false);
@@ -36,6 +39,18 @@ const Hero = () => {
         {/* Main Content */}
         <div className="flex flex-col items-center justify-center relative my-20 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+            <div className="mb-6">
+              <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden border border-white/20 shadow-lg">
+                <Image
+                  src={`${BASE}/portfolio_picture.png`}
+                  alt="Logan Haase"
+                  fill
+                  sizes="160px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
             {/* Typing Animation for Name */}
             <p className="text-center tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
               pursuing a BS in Computer Science from CU Boulder
@@ -44,7 +59,7 @@ const Hero = () => {
             {/* Social Buttons Section */}
             <div className="flex space-x-4 my-4">
               {/* Resume Button */}
-              <Link href="/Haase_Senior_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Link href="/Resume Portfolio.pdf" target="_blank" rel="noopener noreferrer">
                 <MagicButton title="My Resume" icon={<FaLocationArrow />} position="right" />
             </Link>
   

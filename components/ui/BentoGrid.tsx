@@ -34,6 +34,7 @@ export const BentoGridItem = ({
   img,
   imgClassName,
   titleClassName,
+  titleTextClassName,
   spareImg,
 }: {
   className?: string;
@@ -45,6 +46,7 @@ export const BentoGridItem = ({
   img?: string;
   imgClassName?: string;
   titleClassName?: string;
+  titleTextClassName?: string;
   spareImg?: string;
 }) => {
   return (
@@ -125,7 +127,12 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-sx lg:text-base z-10">
             {description}
           </div>
-          <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
+          <div
+            className={cn(
+              "font-sans font-bold text-lg lg:text-3xl max-w-96 z-10",
+              titleTextClassName
+            )}
+          >
             {title}
           </div>
 
