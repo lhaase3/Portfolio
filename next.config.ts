@@ -1,15 +1,25 @@
-// next.config.ts
-const isProd = process.env.NODE_ENV === 'production'
-const repo = 'Portfolio' // <- repo name
+import type { NextConfig } from 'next'
 
-const nextConfig = {
-  output: 'export',                 // emit static files
-  distDir: 'docs',                  // export to docs folder for GitHub Pages
-  basePath: isProd ? `/${repo}` : '',
-  assetPrefix: isProd ? `/${repo}/` : '',
-  images: { unoptimized: true },    // needed for static export
-  trailingSlash: true,
-  env: { NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === 'production' ? '/Portfolio' : '' }
+const repo = 'Portfolio'
+const isGithubPagesBuild = process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github-pages'
+const basePath = isGithubPagesBuild ? `/${repo}` : ''
+
+const nextConfig: NextConfig = {
+  ...(isGithubPagesBuild
+    ? {
+        output: 'export',
+        distDir: 'docs',
+        assetPrefix: `${basePath}/`,
+        trailingSlash: true,
+      }
+    : {}),
+  basePath,
+  images: {
+    unoptimized: isGithubPagesBuild,
+  },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 }
 
 export default nextConfig
