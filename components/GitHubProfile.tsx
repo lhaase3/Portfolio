@@ -96,10 +96,10 @@ export default function GitHubProfile() {
   const [reposLoading, setReposLoading] = useState(true);
   const [reposSectionVisible, setReposSectionVisible] = useState(false);
   const [contributions] = useState<ContributionDay[]>(buildContributionGrid);
-  const heatmapCellSize = 12;
+  const [heatmapCellSize, setHeatmapCellSize] = useState(12);
   const heatmapGap = 3;
   const weekdayLabelWidth = 36;
-  const heatmapMinWidth = weeksWidth(heatmapCellSize, heatmapGap, weekdayLabelWidth);
+  const heatmapContainerRef = useRef<HTMLDivElement | null>(null);
   const githubSectionRef = useRef<HTMLElement | null>(null);
 
   const fetchUser = useCallback(async () => {
@@ -173,6 +173,21 @@ export default function GitHubProfile() {
     fetchFeaturedRepos();
   }, [fetchFeaturedRepos, reposSectionVisible]);
 
+  useEffect(() => {
+    const gap = 3;
+    const labelWidth = 36;
+    const weekCount = 53;
+    const updateCellSize = () => {
+      if (!heatmapContainerRef.current) return;
+      const containerWidth = heatmapContainerRef.current.clientWidth;
+      const computed = Math.floor((containerWidth - labelWidth - (weekCount - 1) * gap) / weekCount);
+      setHeatmapCellSize(Math.max(6, Math.min(14, computed)));
+    };
+    updateCellSize();
+    window.addEventListener("resize", updateCellSize);
+    return () => window.removeEventListener("resize", updateCellSize);
+  }, [githubLoaded]);
+
   const weeks = buildWeeks(contributions);
   const monthLabels = getMonthLabels(weeks);
 
@@ -180,9 +195,9 @@ export default function GitHubProfile() {
     <section
       ref={githubSectionRef}
       id="github"
-      className="relative bg-[#e7eaed] py-24 text-zinc-900"
+      className="relative overflow-x-hidden bg-[#e7eaed] py-24 text-zinc-900"
     >
-      <div className="mx-auto w-full max-w-[1760px] px-6 sm:px-8 sm:pl-28 lg:pl-40 lg:px-8">
+      <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 sm:pl-28 sm:pr-8 lg:pl-40 lg:pr-10">
         {githubLoaded ? (
           <div className="scroll-rise-in">
             {/* Header */}
@@ -192,9 +207,9 @@ export default function GitHubProfile() {
               <div className="mx-auto mt-6 h-[3px] w-full max-w-6xl bg-teal-600/90" />
             </div>
 
-            <div className="grid gap-8 md:grid-cols-[1fr] lg:grid-cols-[420px_minmax(0,1fr)] xl:gap-10 xl:grid-cols-[500px_minmax(0,1fr)]">
+            <div className="grid gap-8 lg:grid-cols-[420px_minmax(0,1fr)] xl:gap-10 xl:grid-cols-[500px_minmax(0,1fr)]">
           {/* ── LEFT COLUMN ── single enclosing white box ── */}
-          <div className="flex flex-col gap-10 rounded-[28px] border border-zinc-200 bg-white p-8 shadow-sm md:p-10 xl:p-12">
+          <div className="flex min-w-0 flex-col gap-10 rounded-[28px] border border-zinc-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-teal-400 md:p-10 xl:p-12">
             {/* GitHub Profile */}
             <div>
               {loading ? (
@@ -212,7 +227,7 @@ export default function GitHubProfile() {
                       width={132}
                       height={132}
                       unoptimized
-                      className="h-32 w-32 rounded-full border-4 border-zinc-100 shadow"
+                      className="h-32 w-32 shrink-0 rounded-full border-4 border-zinc-100 shadow"
                     />
                     <h3 className="mt-5 text-3xl font-bold tracking-tight text-zinc-900">
                       {user?.name ?? githubConfig.displayName}
@@ -281,7 +296,7 @@ export default function GitHubProfile() {
           </div>
 
           {/* ── RIGHT COLUMN ── */}
-          <div className="space-y-10 rounded-[28px] border border-zinc-200 bg-white p-8 shadow-sm md:p-10 md:xl:min-h-[680px] xl:p-12 xl:min-h-[680px]">
+          <div className="min-w-0 space-y-10 rounded-[28px] border border-zinc-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-teal-400 md:p-10 xl:p-12 xl:min-h-[680px]">
             {/* Activity */}
             <div>
               <h3 className="text-3xl font-bold tracking-tight text-zinc-900">Activity</h3>
@@ -300,8 +315,8 @@ export default function GitHubProfile() {
               <h3 className="mb-6 text-3xl font-bold tracking-tight text-zinc-900">Contribution Statistics</h3>
 
               {/* Month labels */}
-              <div className="overflow-x-auto">
-                <div style={{ minWidth: `${heatmapMinWidth}px` }}>
+              <div ref={heatmapContainerRef} className="w-full">
+                <div>
                   {/* Month label row */}
                   <div className="relative mb-2 flex" style={{ paddingLeft: `${weekdayLabelWidth}px` }}>
                     {monthLabels.map(({ label, col }) => (
@@ -442,7 +457,7 @@ export default function GitHubProfile() {
                   {featuredRepos.map((repo) => (
                     <article
                       key={repo.id}
-                      className="group flex min-h-[205px] h-full flex-col rounded-2xl border-l-4 border-l-teal-700 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_38px_rgba(15,23,42,0.1)]"
+                      className="group flex min-h-[205px] h-full flex-col rounded-2xl border-l-4 border-l-teal-700 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-2 hover:ring-teal-400"
                     >
                       <div>
                         <h4 className="text-[1.15rem] font-medium tracking-tight text-teal-700 sm:text-[1.35rem]">
@@ -513,11 +528,6 @@ export default function GitHubProfile() {
       </div>
     </section>
   );
-}
-
-function weeksWidth(cellSize: number, gap: number, labelWidth: number) {
-  const weekCount = 53;
-  return labelWidth + weekCount * cellSize + (weekCount - 1) * gap;
 }
 
 function formatRepoDate(value: string) {

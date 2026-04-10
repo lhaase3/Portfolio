@@ -130,6 +130,10 @@
 }
 
 @layer base {
+  html {
+    font-size: 72%;
+  }
+
   * {
     @apply border-border !scroll-smooth;
   }

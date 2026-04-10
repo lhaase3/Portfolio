@@ -444,7 +444,7 @@ export default function Home() {
         <ParticleNetworkBackground />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_25%,rgba(12,173,164,0.16),transparent_55%)]" />
         <div className="aurora-drift absolute inset-[-18%] opacity-60 bg-[radial-gradient(ellipse_at_70%_35%,rgba(32,255,196,0.14),transparent_42%),radial-gradient(ellipse_at_25%_78%,rgba(0,124,255,0.12),transparent_38%)]" />
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-8 sm:pl-28 lg:pl-40">
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-8 sm:pl-12 lg:pl-16">
           <div className="max-w-5xl">
             {/* <p className="mb-3 text-sm uppercase tracking-[0.35em] text-teal-300/80">Logan Haase</p> */}
             <h1 className="text-6xl font-extrabold leading-tight sm:text-7xl">Logan Haase</h1>
@@ -500,7 +500,7 @@ export default function Home() {
       </section>
 
       <section id="about" ref={aboutSectionRef} className="relative bg-[#e7eaed] py-24 text-zinc-800">
-        <div className="mx-auto w-full max-w-[1650px] px-8 sm:pl-32 sm:pr-8 lg:pl-40 lg:pr-10">
+        <div className="mx-auto w-full max-w-[1400px] px-8 sm:pl-32 sm:pr-8 lg:pl-40 lg:pr-10">
           {aboutLoaded ? (
             <div className="scroll-rise-in">
               <div className="mb-14 text-center">
@@ -510,7 +510,7 @@ export default function Home() {
               </div>
 
               <div className="grid gap-16 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-start xl:grid-cols-[430px_minmax(0,1fr)]">
-                <div className="relative mx-auto h-80 w-80 overflow-hidden rounded-full border-[7px] border-white shadow-lg lg:mx-0 lg:h-[26rem] lg:w-[26rem]">
+                <div className="relative mx-auto h-80 w-80 overflow-hidden rounded-full border-[7px] border-white shadow-lg lg:mx-0 lg:ml-24 lg:h-[26rem] lg:w-[26rem] xl:ml-28">
                   <Image
                     src={`${BASE}/portfolio_picture.png`}
                     alt="Logan Haase"
@@ -632,7 +632,7 @@ export default function Home() {
         ref={portfolioSectionRef}
         className="relative bg-[#e7eaed] py-24 text-zinc-900"
       >
-        <div className="mx-auto w-full max-w-[1650px] px-8 sm:pl-28 lg:pl-40">
+        <div className="mx-auto w-full max-w-[1320px] px-8 sm:pl-28 lg:pl-40">
           {portfolioLoaded ? (
             <div>
               <div className="mb-12 text-center">
@@ -641,7 +641,7 @@ export default function Home() {
                 <div className="mx-auto mt-10 h-[3px] w-full max-w-6xl bg-teal-600/90" />
               </div>
 
-              <div className="mx-auto mb-12 flex w-full max-w-[120rem] items-center justify-center gap-4 sm:gap-8 md:gap-14 lg:gap-20 xl:gap-28 rounded-full bg-[#0e8a7b] px-4 sm:px-8 md:px-10 py-3 shadow-sm">
+              <div className="mx-auto mb-12 flex w-full max-w-[88rem] items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20 rounded-full bg-[#0e8a7b] px-4 sm:px-8 md:px-10 py-3 shadow-sm">
                 {portfolioFilters.map((filter) => {
                   const isActive = portfolioFilter === filter.key;
 
@@ -668,7 +668,7 @@ export default function Home() {
                 })}
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 {displayPortfolioCards.map((card, index) => {
                   const spec = portfolioAnimationSpecs[index];
 
@@ -694,7 +694,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="mx-auto h-12 w-56 animate-pulse rounded-xl bg-zinc-300/80" />
               <div className="mx-auto h-[3px] w-full max-w-[1400px] bg-teal-600/50" />
-              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 {Array.from({ length: 8 }).map((_, index) => (
                   <div
                     key={index}
@@ -711,7 +711,7 @@ export default function Home() {
       <ResumeSection />
       
       <section id="skills" ref={skillsSectionRef} className="relative bg-[#e7eaed] py-24 text-zinc-900">
-        <div className="mx-auto w-full max-w-[1650px] px-8 sm:pl-32 sm:pr-8 lg:pl-40 lg:pr-10">
+        <div className="mx-auto w-full max-w-[1400px] px-8 sm:pl-32 sm:pr-8 lg:pl-40 lg:pr-10">
           {skillsLoaded ? (
             <div className="scroll-rise-in">
               <Skills />
