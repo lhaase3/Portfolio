@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   FaArrowUp,
   FaBriefcase,
@@ -164,8 +164,10 @@ export default function Home() {
   const showExtracurriculars = portfolioFilter === "extracurricular-activities";
   const showWorkExperience = portfolioFilter === "professional-experience";
 
-  const buildProjectCard = (p: (typeof projects)[number]): ModalCard => {
-    const explicitGithub = (p as any).githubLink as string | undefined;
+  const buildProjectCard = useCallback((p: (typeof projects)[number]): ModalCard => {
+    const explicitGithub = (
+      p as (typeof projects)[number] & { githubLink?: string }
+    ).githubLink;
     const isRepoLink = typeof p.link === "string" && p.link.includes("github.com");
 
     return {
@@ -181,7 +183,7 @@ export default function Home() {
       features: p.architecture?.features,
       darkBg: p.id === 1 || p.id === 2,
     };
-  };
+  }, []);
 
   const projectCards = useMemo<AnimatedPortfolioCard[]>(() => {
     return projects.map((p) => ({
@@ -262,7 +264,7 @@ export default function Home() {
       key: `project-${p.id}`,
       item: buildProjectCard(p),
     }));
-  }, [allCards, buildProjectCard, extracurricularCards, filteredProjects, hobbyCards, portfolioFilter, projectCards, showExtracurriculars, showWorkExperience, workCards]);
+  }, [allCards, buildProjectCard, extracurricularCards, filteredProjects, hobbyCards, portfolioFilter, showExtracurriculars, showWorkExperience, workCards]);
 
   const displayPortfolioCards = useMemo<AnimatedPortfolioCard[]>(() => {
     const cards = [...activePortfolioCards];
@@ -277,7 +279,7 @@ export default function Home() {
 
   const portfolioAnimationSpecs = useMemo(() => {
     return buildPortfolioAnimationSpecs(displayPortfolioCards.length);
-  }, [displayPortfolioCards.length, portfolioAnimationCycle, portfolioFilter]);
+  }, [displayPortfolioCards.length]);
 
   useEffect(() => {
     let hideTimer: number | null = null;
@@ -603,19 +605,19 @@ export default function Home() {
 
               <div className="mx-auto mt-16 max-w-7xl space-y-8">
                 <p className="text-[1.35rem] leading-[1.85] text-zinc-700">
-                  My name is Logan Haase, and I'm a Computer Science student at the University of Colorado Boulder with a strong interest in building software systems that go beyond theory and create real impact. What drives me most is taking an idea, designing the system behind it, and bringing it to life for real users. I enjoy working on problems where scale, performance, and usability all intersect.
+                  My name is Logan Haase, and I&apos;m a Computer Science student at the University of Colorado Boulder with a strong interest in building software systems that go beyond theory and create real impact. What drives me most is taking an idea, designing the system behind it, and bringing it to life for real users. I enjoy working on problems where scale, performance, and usability all intersect.
                 </p>
 
                 <p className="text-[1.35rem] leading-[1.85] text-zinc-700">
-                  Over the past few years, I've had the opportunity to build across a range of environments, from internships to founding my own platform. Most notably, I created and now operate StudentList, a cloud-based SaaS platform that serves over 1,900 users and has generated more than $100,000 in revenue. Through this, I've gained firsthand experience designing backend systems, building APIs, managing cloud infrastructure, and continuously improving a live product based on real-world feedback. I've also worked on data-intensive systems during my time at Polaris Electro-Optics, where I helped develop tools for processing and analyzing large-scale scientific datasets.
+                  Over the past few years, I&apos;ve had the opportunity to build across a range of environments, from internships to founding my own platform. Most notably, I created and now operate StudentList, a cloud-based SaaS platform that serves over 1,900 users and has generated more than $100,000 in revenue. Through this, I&apos;ve gained firsthand experience designing backend systems, building APIs, managing cloud infrastructure, and continuously improving a live product based on real-world feedback. I&apos;ve also worked on data-intensive systems during my time at Polaris Electro-Optics, where I helped develop tools for processing and analyzing large-scale scientific datasets.
                 </p>
 
                 <p className="text-[1.35rem] leading-[1.85] text-zinc-700">
-                  What makes me unique is my focus on end-to-end ownership. I don't just write code, I think about how systems are designed, deployed, and used over time. I'm particularly interested in backend engineering, distributed systems, and AI-driven platforms that can handle complex, real-world data.
+                  What makes me unique is my focus on end-to-end ownership. I don&apos;t just write code, I think about how systems are designed, deployed, and used over time. I&apos;m particularly interested in backend engineering, distributed systems, and AI-driven platforms that can handle complex, real-world data.
                 </p>
 
                 <p className="text-[1.35rem] leading-[1.85] text-zinc-700">
-                  The purpose of this portfolio is to showcase not just what I've built, but how I think. Here, you'll find a collection of my projects, technical experience, and the systems I've designed, along with insights into the decisions and challenges behind them. Whether you're here to evaluate my work, explore my projects, or simply learn more about my background, I hope this gives you a clear picture of what I bring as a developer.
+                  The purpose of this portfolio is to showcase not just what I&apos;ve built, but how I think. Here, you&apos;ll find a collection of my projects, technical experience, and the systems I&apos;ve designed, along with insights into the decisions and challenges behind them. Whether you&apos;re here to evaluate my work, explore my projects, or simply learn more about my background, I hope this gives you a clear picture of what I bring as a developer.
                 </p>
               </div>
             </div>

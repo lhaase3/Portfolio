@@ -1,8 +1,4 @@
-import { socialMedia } from "@/data";
-import Image from "next/image";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   const socialLinks = [
@@ -19,7 +15,7 @@ const Footer = () => {
         {/* Carl Sagan Quote */}
         <div className="mb-10 max-w-2xl mx-auto">
           <p className="text-base md:text-lg italic text-zinc-300 leading-relaxed mb-2">
-            "Somewhere, something incredible is waiting to be known."
+            &ldquo;Somewhere, something incredible is waiting to be known.&rdquo;
           </p>
           <p className="text-sm md:text-base text-zinc-400">— Carl Sagan</p>
         </div>
