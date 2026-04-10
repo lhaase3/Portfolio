@@ -39,18 +39,18 @@ const SkillBar: React.FC<SkillBarProps> = ({ name, proficiency, icon, delay }) =
   }, [proficiency, delay]);
 
   const getColorClass = (proficiency: number) => {
-    if (proficiency >= 85) return "bg-gradient-to-r from-green-400 to-green-600";
-    if (proficiency >= 70) return "bg-gradient-to-r from-blue-400 to-blue-600";
-    if (proficiency >= 55) return "bg-gradient-to-r from-yellow-400 to-yellow-600";
-    return "bg-gradient-to-r from-red-400 to-red-600";
+    if (proficiency >= 85) return "bg-gradient-to-r from-emerald-400 to-emerald-500";
+    if (proficiency >= 70) return "bg-gradient-to-r from-sky-400 to-blue-500";
+    if (proficiency >= 55) return "bg-gradient-to-r from-amber-400 to-amber-500";
+    return "bg-gradient-to-r from-rose-400 to-red-500";
   };
 
   return (
-    <div ref={ref} className="mb-4">
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center space-x-2">
+    <div ref={ref} className="mb-5 last:mb-0">
+      <div className="mb-2.5 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
           {icon && (
-            <div className="w-5 h-5 relative">
+            <div className="relative h-6 w-6 shrink-0">
               <Image
                 src={`${BASE}/${icon}`}
                 alt=""
@@ -59,12 +59,12 @@ const SkillBar: React.FC<SkillBarProps> = ({ name, proficiency, icon, delay }) =
               />
             </div>
           )}
-          <span className="text-white font-medium text-sm md:text-base">{name}</span>
+          <span className="text-base font-semibold text-zinc-900 md:text-lg">{name}</span>
         </div>
-        <span className="text-purple text-sm font-semibold">{proficiency}%</span>
+        <span className="text-base font-semibold text-teal-700">{proficiency}%</span>
       </div>
       
-      <div className="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+      <div className="h-3 w-full overflow-hidden rounded-full bg-zinc-200">
         <div
           className={`h-full rounded-full transition-all duration-1000 ease-out ${getColorClass(proficiency)}`}
           style={{
@@ -72,7 +72,7 @@ const SkillBar: React.FC<SkillBarProps> = ({ name, proficiency, icon, delay }) =
             transitionDelay: `${delay}ms`
           }}
         >
-          <div className="h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+          <div className="h-full w-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-pulse" />
         </div>
       </div>
     </div>
@@ -81,19 +81,21 @@ const SkillBar: React.FC<SkillBarProps> = ({ name, proficiency, icon, delay }) =
 
 const Skills = () => {
   return (
-    <div className="py-20 px-4" id="skills">
-      <h1 className="heading mb-16">
-        My <span className="text-purple">Technical Skills</span>
-      </h1>
+    <>
+      <div className="mb-14 text-center">
+        <h2 className="text-5xl font-extrabold text-zinc-900">Technical Skills</h2>
+        <div className="mx-auto mt-4 h-[3px] w-40 bg-teal-700" />
+        <div className="mx-auto mt-10 h-[3px] w-full max-w-6xl bg-teal-600/90" />
+      </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="mx-auto max-w-[1500px]">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {skills.map((category, categoryIndex) => (
             <div
               key={category.category}
-              className="bg-black/50 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-purple/30 transition-all duration-300"
+              className="rounded-[28px] border border-zinc-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-purple mb-6 text-center">
+              <h3 className="mb-8 text-center text-3xl font-bold text-teal-700">
                 {category.category}
               </h3>
               
@@ -110,61 +112,59 @@ const Skills = () => {
               </div>
             </div>
           ))}
-        </div>
+          </div>
 
-        {/* Legend */}
-        <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm">
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-2 bg-gradient-to-r from-green-400 to-green-600 rounded"></div>
-            <span className="text-gray-300">Expert (85%+)</span>
+          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm md:text-base">
+            <div className="flex items-center gap-2.5">
+              <div className="h-3 w-5 rounded bg-gradient-to-r from-emerald-400 to-emerald-500" />
+              <span className="text-zinc-700">Expert (85%+)</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <div className="h-3 w-5 rounded bg-gradient-to-r from-sky-400 to-blue-500" />
+              <span className="text-zinc-700">Proficient (70-84%)</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <div className="h-3 w-5 rounded bg-gradient-to-r from-amber-400 to-amber-500" />
+              <span className="text-zinc-700">Intermediate (55-69%)</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <div className="h-3 w-5 rounded bg-gradient-to-r from-rose-400 to-red-500" />
+              <span className="text-zinc-700">Learning (Below 55%)</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded"></div>
-            <span className="text-gray-300">Proficient (70-84%)</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded"></div>
-            <span className="text-gray-300">Intermediate (55-69%)</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-2 bg-gradient-to-r from-red-400 to-red-600 rounded"></div>
-            <span className="text-gray-300">Learning (Below 55%)</span>
-          </div>
-        </div>
 
-        {/* Summary Stats */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center p-4 bg-black/30 rounded-lg border border-white/10">
-            <div className="text-2xl font-bold text-purple">
-              {skills.reduce((acc, cat) => acc + cat.technologies.length, 0)}
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center shadow-sm">
+              <div className="text-3xl font-bold text-teal-700">
+                {skills.reduce((acc, cat) => acc + cat.technologies.length, 0)}
+              </div>
+              <div className="mt-1 text-sm text-zinc-500">Technologies</div>
             </div>
-            <div className="text-gray-400 text-sm">Technologies</div>
-          </div>
-          <div className="text-center p-4 bg-black/30 rounded-lg border border-white/10">
-            <div className="text-2xl font-bold text-purple">
-              {skills.reduce((acc, cat) => 
-                acc + cat.technologies.filter(tech => tech.proficiency >= 85).length, 0
-              )}
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center shadow-sm">
+              <div className="text-3xl font-bold text-teal-700">
+                {skills.reduce((acc, cat) => 
+                  acc + cat.technologies.filter((tech) => tech.proficiency >= 85).length, 0
+                )}
+              </div>
+              <div className="mt-1 text-sm text-zinc-500">Expert Level</div>
             </div>
-            <div className="text-gray-400 text-sm">Expert Level</div>
-          </div>
-          <div className="text-center p-4 bg-black/30 rounded-lg border border-white/10">
-            <div className="text-2xl font-bold text-purple">
-              {Math.round(
-                skills.reduce((acc, cat) => 
-                  acc + cat.technologies.reduce((sum, tech) => sum + tech.proficiency, 0), 0
-                ) / skills.reduce((acc, cat) => acc + cat.technologies.length, 0)
-              )}%
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center shadow-sm">
+              <div className="text-3xl font-bold text-teal-700">
+                {Math.round(
+                  skills.reduce((acc, cat) => 
+                    acc + cat.technologies.reduce((sum, tech) => sum + tech.proficiency, 0), 0
+                  ) / skills.reduce((acc, cat) => acc + cat.technologies.length, 0)
+                )}%
+              </div>
+              <div className="mt-1 text-sm text-zinc-500">Avg Proficiency</div>
             </div>
-            <div className="text-gray-400 text-sm">Avg Proficiency</div>
-          </div>
-          <div className="text-center p-4 bg-black/30 rounded-lg border border-white/10">
-            <div className="text-2xl font-bold text-purple">4</div>
-            <div className="text-gray-400 text-sm">Categories</div>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 text-center shadow-sm">
+              <div className="text-3xl font-bold text-teal-700">{skills.length}</div>
+              <div className="mt-1 text-sm text-zinc-500">Categories</div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+    </>
   );
 };
 

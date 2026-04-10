@@ -79,6 +79,7 @@ export const navItems = [
     {
       id: 1,
       title: "Greek List: Web App for Fraternity Rush",
+      category: ["web-development"],
       des: "A platform connecting fraternities and potential new members, streamlining rush and recruitment management.",
       img: "greeklist-white-logo.png",
       iconLists: ["next.svg", "tail.svg", "firebase.svg", "python.svg"],
@@ -118,6 +119,7 @@ export const navItems = [
     {
       id: 2,
       title: "SatMon: Real-Time Satellite Telemetry & Space Data Platform",
+      category: ["web-development"],
       des: "Full-stack aerospace platform combining live NASA/SpaceX APIs, ML-powered anomaly detection, and interactive 3D ISS tracking. Features real-time space data integration, orbital visualization, and production-ready telemetry monitoring. 🚀 Production deployment with live space data.",
       img: "satmon-complex-logo.png",
       iconLists: ["python.svg", "fastapi.svg", "postgresql.svg", "threejs.svg", "vercel.svg"],
@@ -164,6 +166,7 @@ export const navItems = [
     {
       id: 3,
       title: "Multithreaded Server Client",
+      category: ["web-development"],
       des: "This multithreaded server handles multiple clients making GET requests. It serves files with headers detailing file type, size, and status codes (e.g., 200, 404, 400).",
       img: "sc_hs.jpg",
       iconLists: ["c.svg"],
@@ -194,6 +197,7 @@ export const navItems = [
     {
       id: 4,
       title: "Mulithreaded HTTP Caching Proxy",
+      category: ["web-development"],
       des: "This proxy server caches files from a web server, reducing latency and bandwidth usage. It handles multiple clients and serves cached files efficiently.",
       img: "caching_prox.jpg",
       iconLists: ["c.svg"],
@@ -225,6 +229,7 @@ export const navItems = [
     {
       id: 5,
       title: "Rubiks Cube Solver",
+      category: ["web-development"],
       des: "This program allows the user to input 6 photos, or take 6 photos, of each side of a Rubiks Cube and solves it using a custom algorithm.",
       img: "rubiks-photo.png",
       iconLists: ["python-5.svg", "next.svg"],
@@ -271,7 +276,7 @@ export const navItems = [
     {
       category: "Backend",
       technologies: [
-        { name: "Python", proficiency: 90, icon: "python-5.svg" },
+        { name: "Python", proficiency: 80, icon: "python-5.svg" },
         { name: "C/C++", proficiency: 80, icon: "c.svg" },
         { name: "Node.js", proficiency: 75, icon: "nodejs.svg" },
         { name: "Flask", proficiency: 85, icon: "flask.svg" },
@@ -302,39 +307,46 @@ export const navItems = [
   
   export const workExperience = [
     {
+      id: 0,
+      title: "Founder & Developer - StudentList",
+      desc: "Architected and operated a cloud backend serving 1,900+ users across fraternity chapters nationwide. Built and maintained APIs for payment processing, QR-based event check-in, and analytics pipelines, while deploying and managing containerized production services on GCP Cloud Run. Iterated on system design based on real-world performance and operational data, driving $100K+ in revenue.",
+      className: "md:col-span-2",
+      thumbnail: "greeklist-white-logo.png",
+    },
+    {
       id: 1,
       title: "Software Engineer Intern - Polaris-Electro Optics",
       desc: " Independently built a full-stack chemical compound database (Next.js, Flask, Firebase, RDKit) with interactive features for research data management, and consolidated silicon-photonics GDSFactory libraries into unified, parameterized modules for reusable waveguide, phase shifter, and electrode design with automated validation.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "polaris-icon.png",
+      thumbnail: "polaris-photo.png",
     },
     {
       id: 2,
       title: "Software Engineer Intern - Consensus Technology Group",
       desc: "Developed secure login, registration, and 2FA flows using Supabase for enterprise-grade data center infrastructure management. Implemented role-based access controls, improved onboarding UX, and collaborated with the team to harden authentication and session handling.",
       className: "md:col-span-2",
-      thumbnail: "exp1.svg",
+      thumbnail: "consesus-photo.jpg",
     },
     {
       id: 3,
       title: "Software Development Intern - Modern Prairie",
       desc: "Built JavaScript APIs to automate newsletters, sign-ups, product views, and abandoned-cart emails, integrating third-party email services for behavior-triggered communications. Designed event pipelines and templates to improve segmentation, delivery reliability, and conversion tracking.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "exp2.svg",
+      thumbnail: "modern-photo.jpg",
     },
     {
       id: 4,
       title: "Sales Associate - Jack's Surfboards",
       desc: "Assisted customers with product selection across apparel, wetsuits, and surfboards, matching gear to skill level, conditions, and budget. Provided product education, handled in-store operations, and maintained a high-touch customer experience.",
       className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "bag3.png",
+      thumbnail: "jack-photo.jpg",
     },
   ];
 
   export const extracurriculars = [
     {
       id: 1,
-      title: "Chi Psi Fraternity",
+      title: "Philanthropy Chairman - Chi Psi Fraternity",
       role: "Philanthropy Chairman · Apr 2023 – Apr 2024 · Boulder, CO",
       image: "port_1.jpg",
       description:
@@ -355,6 +367,56 @@ export const navItems = [
       image: "prof-surf.png",
       description:
         "Surfing since age 7, I’ve always loved the ocean and have stayed connected to it through teaching. I instruct surfers with family friends in Huntington Beach, help beginners build confidence in the water, and used to compete in local surf competitions.",
+    },    {
+      id: 4,
+      title: "Basketball",
+      role: "Lifelong Player",
+      image: "basketball-photo.jpg",
+      description:
+        "Basketball has been a constant throughout my life. I've played recreationally and competitively, and still play regularly. It keeps me competitive, sharp, and connected to a sport I genuinely love.",
+    },
+    {
+      id: 5,
+      title: "Guitar",
+      role: "Self-Taught Musician",
+      image: "guitar-icon.png",
+      description:
+        // "I've been playing guitar for years — everything from fingerpicking to electric. Music is a creative outlet that balances out the technical side of my work in software.",
+        "I've been playing guitar for the past 3 years, started with acoustic and then moved on to electric. My current favorite songs to play are Mr Brightside, Fortunate Son, and Pretty Woman.",
+    },
+    {
+      id: 6,
+      title: "Weightlifting",
+      role: "Fitness Enthusiast",
+      image: "lifting-photo.png",
+      description:
+        // "Lifting is part of my daily routine. I focus on consistency and progressive overload, treating fitness the same way I treat engineering — with discipline, data, and incremental improvement.",
+        "Lifting has been a consistent part of my life for the past few years, and I believe a great way to stay disciplined and focused.",
+    },
+    {
+      id: 7,
+      title: "Astronomy",
+      role: "Night Sky Enthusiast",
+      image: "space-photo.jpg",
+      description:
+        // "I enjoy astronomy and spending nights stargazing, tracking constellations, and learning more about planets and deep-space objects.",
+        "Ever since I was a little kid with my dad playing podcasts about space and astronomy in the car on the way to baseketball and baseball games, I have loved learning about the night sky and the universe beyond our planet. I still enjoy stargazing whenever I get the chance and keeping up with new discoveries in astronomy and space exploration.",
+    },
+    {
+      id: 8,
+      title: "Hiking",
+      role: "Trail Explorer",
+      image: "hiking-photo.jpg",
+      description:
+        "Hiking has been a pillar of family activities throughout my life. At least once a year my dad and I will go to national parks to get out and hike for a week straight! My favorite places so far have been Torrey Utah and Kauai Hawaii. In the next few years I hope to go to Africa and climb Mount Kilimanjaro!",
+    },
+    {
+      id: 9,
+      title: "Intramural Basketball",
+      role: "Intramural Player",
+      image: "intramural-photo.jpg",
+      description:
+        "I play intramural basketball to stay competitive, active, and connected with team sports while at CU Boulder. This year we ended up getting first place in our division!",
     },
   ];
   
