@@ -259,6 +259,38 @@ export const navItems = [
         ]
       }
     },
+    {
+      id: 6,
+      title: "Divisible: Group Expense Management Platform",
+      category: ["web-development"],
+      des: "Class group software project for simplifying shared expense tracking and money movement across friend groups, with support for group-based splits, balance tracking, and transaction notes.",
+      img: "DivisibleLogo.png",
+      iconLists: ["next.svg", "nodejs.svg", "postgresql.svg", "git.svg"],
+      link: "https://github.com/NoahBays/Group-3-Repository",
+      architecture: {
+        description: "Team-built web application focused on managing expenses between individuals and groups. Designed to extend familiar peer-to-peer payment workflows with structured group settings, explicit split rules, and better tracking for real-world group coordination.",
+        techStack: [
+          { name: "Web App Architecture", purpose: "Browser-based interface for group and transaction management" },
+          { name: "PayPal / Venmo Integration", purpose: "Payment rail support for sending and requesting money" },
+          { name: "GitHub", purpose: "Version control, pull request workflow, and collaborative reviews" },
+          { name: "Agile Workflow", purpose: "Ticket-based planning, iteration, and team delivery cadence" }
+        ],
+        features: [
+          "Send and request money between individuals",
+          "Create and manage group-level transactions",
+          "Support percentage-based and equal split options",
+          "Track dated transactions with short charge descriptions",
+          "Group owner controls for managing member payment actions",
+          "Push notifications for users with outstanding balances"
+        ],
+        challenges: [
+          "Designing clear rules for role-based group payment permissions",
+          "Balancing flexible split logic with easy-to-understand UX",
+          "Coordinating multi-person development using branches and PR reviews",
+          "Keeping project execution aligned through issue tracking and team planning"
+        ]
+      }
+    },
   ];
   
   export const skills = [
