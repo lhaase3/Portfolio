@@ -78,14 +78,14 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "Greek List: Web App for Fraternity Rush",
+      title: "GreekList: Web App for Fraternity Rush",
       category: ["web-development"],
       des: "A platform connecting fraternities and potential new members, streamlining rush and recruitment management.",
       img: "greeklist-white-logo.png",
       iconLists: ["next.svg", "tail.svg", "firebase.svg", "python.svg"],
       link: "https://greeklist.net",
       architecture: {
-        description: "Full-stack web application built with Next.js and Firebase, deployed on Google Cloud Run and Vercel, designed for scalable fraternity recruitment management.",
+        description: "GreekList is a full-stack web app that streamlines fraternity rush by bringing the entire recruitment process into one place. Students can discover chapters, register, pay fees, and check in to events, while IFC and chapter admins manage invitations, attendance, and bid workflows through role-based dashboards. It also automates key communication like confirmations and reminders, reducing manual admin work and missed steps. Built with Next.js and Firebase, with PayPal and SendGrid integrations, it is deployed on Vercel and Google Cloud Run for reliable, scalable performance.",
         techStack: [
           { name: "Next.js 14", purpose: "Frontend framework with server-side rendering and client components" },
           { name: "Tailwind CSS", purpose: "Utility-first CSS framework for responsive UI design" },
@@ -126,7 +126,7 @@ export const navItems = [
       link: "https://satmon.space/",
       githubLink: "https://github.com/lhaase3/satmon",
       architecture: {
-        description: "Production aerospace platform that integrates live NASA/SpaceX APIs with advanced telemetry analytics. Features real-time ISS tracking via 3D Earth visualization, automated space data ingestion, and ML-powered anomaly detection. Deployed on Vercel with serverless architecture for scalable space data processing.",
+        description: "SatMon is an end-to-end satellite telemetry monitoring platform I built to detect anomalies in real time and explain model behavior for faster operational decisions. It combines a Python API layer, time-series analytics, and multiple detection methods (including statistical, isolation forest, and LSTM-based approaches) to identify unusual patterns in spacecraft data streams. The project also includes model training, drift monitoring, and explainable AI components, plus a web dashboard for visualizing telemetry health and alerts. SatMon demonstrates my ability to design production-style ML systems that are reliable, interpretable, and deployment-ready.",
         techStack: [
           { name: "NASA APIs", purpose: "Live ISS position, crew data, and Mars rover telemetry" },
           { name: "SpaceX API", purpose: "Real-time launch data and mission information" },
@@ -341,28 +341,28 @@ export const navItems = [
     {
       id: 0,
       title: "Founder & Developer - StudentList",
-      desc: "Architected and operated a cloud backend serving 1,900+ users across fraternity chapters nationwide. Built and maintained APIs for payment processing, QR-based event check-in, and analytics pipelines, while deploying and managing containerized production services on GCP Cloud Run. Iterated on system design based on real-world performance and operational data, driving $100K+ in revenue.",
+      desc: "StudentList is a full-stack platform I built and operate to support fraternity recruitment and event management at scale. The system has served over 1,900 users and generated more than $100K in revenue for the organizations that use it, handling everything from user onboarding to payments and analytics. I designed and developed the entire backend architecture, building APIs and services to power payment workflows, QR-based event attendance tracking, and real-time data ingestion. The platform includes admin dashboards and analytics pipelines that allow organizations to monitor engagement, track recruitment progress, and make data-driven decisions. The system is deployed using containerized services in a cloud environment, where I manage infrastructure, performance, and ongoing iterations based on real-world usage. Building StudentList has given me end-to-end experience in system design, scaling production applications, and translating user needs into reliable, high-impact software.",
       className: "md:col-span-2",
       thumbnail: "greeklist-white-logo.png",
     },
     {
       id: 1,
       title: "Software Engineer Intern - Polaris-Electro Optics",
-      desc: " Independently built a full-stack chemical compound database (Next.js, Flask, Firebase, RDKit) with interactive features for research data management, and consolidated silicon-photonics GDSFactory libraries into unified, parameterized modules for reusable waveguide, phase shifter, and electrode design with automated validation.",
+      desc: "During my internship at Polaris Electro-Optics, I built software systems to support scientific research workflows and large-scale data analysis. I developed a full-stack chemical compound database using Next.js, Flask, Firebase, and RDKit, enabling researchers to store, query, and visualize experimental data with features like structure-based search and interactive compound views. On the backend, I designed data pipelines for ingesting, validating, and organizing scientific datasets, improving consistency and reproducibility across experiments. I also refactored legacy silicon-photonics GDSFactory libraries into unified, parameterized modules for waveguide, phase shifter, and electrode design, significantly improving maintainability and enabling faster engineering iteration. This role involved close collaboration with engineers and scientists, translating complex domain requirements into scalable, production-ready systems at the intersection of software and scientific computing.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "polaris-photo.png",
     },
     {
       id: 2,
       title: "Software Engineer Intern - Consensus Technology Group",
-      desc: "Developed secure login, registration, and 2FA flows using Supabase for enterprise-grade data center infrastructure management. Implemented role-based access controls, improved onboarding UX, and collaborated with the team to harden authentication and session handling.",
+      desc: "During my internship at Consensus Technology Group, I worked on authentication and access-control systems within a larger enterprise software platform. I developed and tested core features including user login, registration, and multi-factor authentication, contributing to secure and reliable user management workflows. I operated within a structured development environment, focusing on writing clean, maintainable code and ensuring correctness through testing and validation. My work emphasized security best practices and system reliability, particularly in handling user credentials and authentication flows. This experience gave me exposure to production-level infrastructure and reinforced the importance of building secure, scalable systems that integrate seamlessly into broader enterprise applications.",
       className: "md:col-span-2",
       thumbnail: "consesus-photo.jpg",
     },
     {
       id: 3,
       title: "Software Development Intern - Modern Prairie",
-      desc: "Built JavaScript APIs to automate newsletters, sign-ups, product views, and abandoned-cart emails, integrating third-party email services for behavior-triggered communications. Designed event pipelines and templates to improve segmentation, delivery reliability, and conversion tracking.",
+      desc: "During my time at Modern Prairie, I focused on building backend systems to support e-commerce and marketing automation workflows. I developed JavaScript-based APIs that powered key user engagement features, including newsletter subscriptions, product interactions, and automated email campaigns such as abandoned cart notifications. I implemented real-time user event tracking using Node.js, enabling the platform to capture and respond to user behavior dynamically. This data was used to trigger targeted marketing actions and improve customer engagement across the site. Through this role, I gained hands-on experience designing lightweight backend services, working with event-driven systems, and building tools that directly impact user growth and business operations.",
       className: "md:col-span-2", // change to md:col-span-2
       thumbnail: "modern-photo.jpg",
     },

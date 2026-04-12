@@ -444,7 +444,7 @@ export default function Home() {
         <ParticleNetworkBackground />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_25%,rgba(12,173,164,0.16),transparent_55%)]" />
         <div className="aurora-drift absolute inset-[-18%] opacity-60 bg-[radial-gradient(ellipse_at_70%_35%,rgba(32,255,196,0.14),transparent_42%),radial-gradient(ellipse_at_25%_78%,rgba(0,124,255,0.12),transparent_38%)]" />
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-8 sm:pl-12 lg:pl-16">
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-8 pl-24 sm:pl-28 lg:pl-32">
           <div className="max-w-5xl">
             {/* <p className="mb-3 text-sm uppercase tracking-[0.35em] text-teal-300/80">Logan Haase</p> */}
             <h1 className="text-6xl font-extrabold leading-tight sm:text-7xl">Logan Haase</h1>

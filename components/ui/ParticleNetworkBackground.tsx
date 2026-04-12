@@ -41,11 +41,20 @@ export default function ParticleNetworkBackground() {
 
     const points: Point[] = [];
     const shootingStars: ShootingStar[] = [];
-    const pointCount = 150;
+    let pointCount = 150;
+    let linkDistance = 220;
+    let shootingStarChance = 0.06;
 
     const setSize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
+      const isMobile = width < 640;
+
+      // Dial visuals down on compact screens to avoid crowding.
+      pointCount = isMobile ? 72 : 150;
+      linkDistance = isMobile ? 130 : 220;
+      shootingStarChance = isMobile ? 0.025 : 0.06;
+
       const ratio = window.devicePixelRatio || 1;
       canvas.width = Math.floor(width * ratio);
       canvas.height = Math.floor(height * ratio);
@@ -71,7 +80,7 @@ export default function ParticleNetworkBackground() {
     };
 
     const spawnShootingStar = () => {
-      if (Math.random() > 0.06) return;
+      if (Math.random() > shootingStarChance) return;
 
       const fromTop = Math.random() > 0.5;
       const startX = fromTop ? Math.random() * width : -120;
@@ -157,8 +166,8 @@ export default function ParticleNetworkBackground() {
           const dy = p1.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 220) {
-            const alpha = 1 - dist / 220;
+          if (dist < linkDistance) {
+            const alpha = 1 - dist / linkDistance;
             ctx.strokeStyle = `rgba(18, 169, 159, ${alpha * 0.35})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -222,13 +231,18 @@ export default function ParticleNetworkBackground() {
     seedPoints();
     animate(0);
 
-    window.addEventListener("resize", setSize);
+    const onResize = () => {
+      setSize();
+      seedPoints();
+    };
+
+    window.addEventListener("resize", onResize);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerleave", onPointerLeave);
 
     return () => {
       window.cancelAnimationFrame(frameId);
-      window.removeEventListener("resize", setSize);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerleave", onPointerLeave);
     };

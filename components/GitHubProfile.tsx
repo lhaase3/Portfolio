@@ -97,8 +97,9 @@ export default function GitHubProfile() {
   const [reposSectionVisible, setReposSectionVisible] = useState(false);
   const [contributions] = useState<ContributionDay[]>(buildContributionGrid);
   const [heatmapCellSize, setHeatmapCellSize] = useState(12);
-  const heatmapGap = 3;
-  const weekdayLabelWidth = 36;
+  const [heatmapGap, setHeatmapGap] = useState(3);
+  const [weekdayLabelWidth, setWeekdayLabelWidth] = useState(36);
+  const [showWeekdayLabels, setShowWeekdayLabels] = useState(true);
   const heatmapContainerRef = useRef<HTMLDivElement | null>(null);
   const githubSectionRef = useRef<HTMLElement | null>(null);
 
@@ -174,14 +175,22 @@ export default function GitHubProfile() {
   }, [fetchFeaturedRepos, reposSectionVisible]);
 
   useEffect(() => {
-    const gap = 3;
-    const labelWidth = 36;
     const weekCount = 53;
     const updateCellSize = () => {
       if (!heatmapContainerRef.current) return;
       const containerWidth = heatmapContainerRef.current.clientWidth;
-      const computed = Math.floor((containerWidth - labelWidth - (weekCount - 1) * gap) / weekCount);
-      setHeatmapCellSize(Math.max(6, Math.min(14, computed)));
+      const isNarrow = containerWidth < 430;
+      const gap = isNarrow ? 1 : 3;
+      const labelWidth = isNarrow ? 0 : 36;
+      const minCell = isNarrow ? 2 : 6;
+      const maxCell = isNarrow ? 14 : 14;
+      const availableWidth = containerWidth - labelWidth - (weekCount - 1) * gap;
+      const computed = Math.floor(availableWidth / weekCount);
+
+      setHeatmapGap(gap);
+      setWeekdayLabelWidth(labelWidth);
+      setShowWeekdayLabels(!isNarrow);
+      setHeatmapCellSize(Math.max(minCell, Math.min(maxCell, computed)));
     };
     updateCellSize();
     window.addEventListener("resize", updateCellSize);
@@ -334,17 +343,19 @@ export default function GitHubProfile() {
                   {/* Grid rows: 7 weekdays */}
                   <div className="flex" style={{ gap: `${heatmapGap}px` }}>
                     {/* Weekday labels */}
-                    <div className="flex flex-col pr-1 text-right" style={{ width: `${weekdayLabelWidth}px`, gap: `${heatmapGap}px` }}>
-                      {["", "Mon", "", "Wed", "", "Fri", ""].map((label, i) => (
-                        <div
-                          key={i}
-                          className="text-[10px] leading-none text-zinc-400"
-                          style={{ height: `${heatmapCellSize}px` }}
-                        >
-                          {label}
-                        </div>
-                      ))}
-                    </div>
+                    {showWeekdayLabels && (
+                      <div className="flex flex-col pr-1 text-right" style={{ width: `${weekdayLabelWidth}px`, gap: `${heatmapGap}px` }}>
+                        {["", "Mon", "", "Wed", "", "Fri", ""].map((label, i) => (
+                          <div
+                            key={i}
+                            className="text-[10px] leading-none text-zinc-400"
+                            style={{ height: `${heatmapCellSize}px` }}
+                          >
+                            {label}
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Week columns */}
                     {weeks.map((week, wi) => (
