@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FaExternalLinkAlt, FaRegFileAlt } from "react-icons/fa";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type ResumeEntry = {
   title: string;
   role?: string;
@@ -200,7 +202,7 @@ export default function ResumeSection() {
 
             <div className="mb-12 flex justify-center">
               <a
-                href="/Resume Portfolio.pdf"
+                href={`${BASE}/Resume Portfolio.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-full border-2 border-teal-700 bg-white px-7 py-3 text-lg font-semibold text-teal-700 transition-colors hover:bg-teal-700 hover:text-white"

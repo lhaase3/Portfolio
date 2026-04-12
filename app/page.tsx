@@ -487,7 +487,7 @@ export default function Home() {
                 <FaLinkedin />
               </a>
               <a
-                href="/Resume Portfolio.pdf"
+                href={`${BASE}/Resume Portfolio.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border border-zinc-500 px-5 py-2.5 text-base font-semibold uppercase tracking-wider text-zinc-200 transition hover:border-teal-300 hover:text-white"
