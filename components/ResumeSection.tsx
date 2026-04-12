@@ -143,7 +143,7 @@ function TimelineBlock({
     <article className="resume-timeline-item relative pl-10 pb-10 last:pb-0">
       <span className="absolute left-[7px] top-2 h-3.5 w-3.5 rounded-full border-2 border-teal-600 bg-[#e7eaed]" />
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-1">
-        <h4 className="max-w-4xl text-3xl font-bold leading-tight text-zinc-900 sm:text-4xl">{title}</h4>
+        <h4 className="max-w-4xl text-2xl font-bold leading-tight text-zinc-900 sm:text-3xl">{title}</h4>
         {date && <p className="text-xl font-semibold text-teal-700">{date}</p>}
       </div>
       {(role || location) && (
@@ -215,7 +215,7 @@ export default function ResumeSection() {
 
             <div className="grid gap-10 xl:grid-cols-2 xl:items-start">
               <div>
-                <h3 className="mb-8 text-center text-5xl font-bold text-zinc-900">Education</h3>
+                <h3 className="mb-8 text-center text-3xl font-bold text-zinc-900 sm:text-4xl">Education</h3>
                 <div className="resume-timeline relative border-l-2 border-teal-600 pl-2">
                   {educationEntries.map((entry) => (
                     <TimelineBlock
@@ -230,7 +230,7 @@ export default function ResumeSection() {
                 </div>
 
                 <div className="mt-14">
-                  <h3 className="mb-8 text-center text-5xl font-bold text-zinc-900">Professional Experience</h3>
+                  <h3 className="mb-8 text-center text-3xl font-bold text-zinc-900 sm:text-4xl">Professional Experience</h3>
                   <div className="resume-timeline relative border-l-2 border-teal-600 pl-2">
                     {experienceEntries.map((entry) => (
                       <TimelineBlock
@@ -247,7 +247,7 @@ export default function ResumeSection() {
               </div>
 
               <div>
-                <h3 className="mb-8 text-center text-5xl font-bold text-zinc-900">Projects</h3>
+                <h3 className="mb-8 text-center text-3xl font-bold text-zinc-900 sm:text-4xl">Projects</h3>
                 <div className="resume-timeline relative border-l-2 border-teal-600 pl-2">
                   {projectEntries.map((entry) => (
                     <TimelineBlock
@@ -260,7 +260,7 @@ export default function ResumeSection() {
                 </div>
 
                 <div className="mt-14">
-                  <h3 className="mb-8 text-center text-5xl font-bold text-zinc-900">Leadership</h3>
+                  <h3 className="mb-8 text-center text-3xl font-bold text-zinc-900 sm:text-4xl">Leadership</h3>
                   <div className="resume-timeline relative border-l-2 border-teal-600 pl-2">
                     {leadershipEntries.map((entry) => (
                       <TimelineBlock
@@ -276,7 +276,7 @@ export default function ResumeSection() {
                 </div>
 
                 <div className="mt-14">
-                  <h3 className="mb-6 text-center text-5xl font-bold text-zinc-900">Skills</h3>
+                  <h3 className="mb-6 text-center text-3xl font-bold text-zinc-900 sm:text-4xl">Skills</h3>
                   <div className="resume-timeline relative border-l-2 border-teal-600 pl-2">
                     <article className="resume-timeline-item relative pl-10 pb-0">
                       <span className="absolute left-[7px] top-2 h-3.5 w-3.5 rounded-full border-2 border-teal-600 bg-[#e7eaed]" />
