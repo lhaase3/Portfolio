@@ -27,6 +27,9 @@ jobs:
       - name: Build static export
         run: npm run build:static
 
+      - name: Preserve _next assets on GitHub Pages
+        run: touch docs/.nojekyll
+
       - name: Commit and push updated docs/
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
