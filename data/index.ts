@@ -291,6 +291,39 @@ export const navItems = [
         ]
       }
     },
+    {
+      id: 7,
+      title: "Intelligent Mars Rover Terrain Analysis & Navigation",
+      category: ["web-development"],
+      des: "End-to-end Mars surface navigation project for modeling rover traversal across synthetic terrain and optimizing lower-risk route planning.",
+      img: "rover-picture.jpg",
+      iconLists: ["python-5.svg", "git.svg"],
+      link: "https://github.com/lhaase3/mars-rover-project",
+      architecture: {
+        description: "AresNav is an end-to-end Mars surface navigation project I built to model rover traversal across synthetic terrain and optimize route planning with data-driven intelligence. It combines terrain generation, feature engineering, PCA-based dimensionality reduction, unsupervised clustering, and graph-based navigation to identify safer, lower-risk paths across complex landscapes. The project includes a reproducible pipeline, quantitative risk metrics, and interactive 3D visual outputs for comparing route strategies. AresNav demonstrates my ability to design interpretable, production-style geospatial ML workflows that connect analytics, modeling, and decision-ready simulation outputs.",
+        techStack: [
+          { name: "Python", purpose: "Core implementation for terrain simulation, analytics, and navigation modeling" },
+          { name: "PCA", purpose: "Dimensionality reduction for compressing terrain feature space" },
+          { name: "Unsupervised Clustering", purpose: "Grouping terrain regions by similar traversal characteristics" },
+          { name: "Graph-Based Navigation", purpose: "Route planning across terrain with risk-aware path selection" },
+          { name: "3D Visualization", purpose: "Interactive visual comparison of terrain and route strategies" }
+        ],
+        features: [
+          "Synthetic Mars terrain generation for controlled route-planning experiments",
+          "Feature engineering pipeline for slope, roughness, and traversal-risk analysis",
+          "PCA-driven reduction of terrain variables into interpretable components",
+          "Unsupervised clustering to identify safer and riskier surface regions",
+          "Graph-based pathfinding for comparing navigation strategies across complex terrain",
+          "Interactive 3D outputs and quantitative metrics for route evaluation"
+        ],
+        challenges: [
+          "Balancing route efficiency against terrain-risk minimization",
+          "Designing interpretable terrain features that support navigation decisions",
+          "Connecting clustering outputs to practical graph traversal constraints",
+          "Producing reproducible simulation outputs and comparable route metrics"
+        ]
+      }
+    },
   ];
   
   export const skills = [

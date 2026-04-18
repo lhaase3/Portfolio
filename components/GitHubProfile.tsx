@@ -465,10 +465,11 @@ export default function GitHubProfile() {
                 </div>
               ) : (
                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                  {featuredRepos.map((repo) => (
+                  {featuredRepos.map((repo, idx) => (
                     <article
                       key={repo.id}
-                      className="group flex min-h-[205px] h-full flex-col rounded-2xl border-l-4 border-l-teal-700 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-2 hover:ring-teal-400"
+                      className="scroll-rise-in group flex min-h-[205px] h-full flex-col rounded-2xl border-l-4 border-l-teal-700 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:ring-2 hover:ring-teal-400"
+                      style={{ animationDelay: `${idx * 90}ms` }}
                     >
                       <div>
                         <h4 className="text-[1.15rem] font-medium tracking-tight text-teal-700 sm:text-[1.35rem]">

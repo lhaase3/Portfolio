@@ -93,7 +93,7 @@ function PortfolioCard({
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
       <div
-        className={`relative h-44 w-full overflow-hidden ${
+        className={`relative h-32 w-full overflow-hidden ${
           item.darkBg ? "bg-zinc-800" : item.imgFit === "cover" ? "bg-zinc-200" : "bg-white"
         }`}
       >
@@ -105,16 +105,16 @@ function PortfolioCard({
           className={
             item.imgFit === "cover"
               ? "object-cover transition-transform duration-300 group-hover:scale-105"
-              : "object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+              : "object-contain p-2 transition-transform duration-300 group-hover:scale-105"
           }
         />
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-zinc-900/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-start p-4">
-          <h3 className="text-white font-bold text-lg leading-snug">{item.title}</h3>
+        <div className="absolute inset-0 bg-zinc-900/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-start p-3">
+          <h3 className="text-base font-bold leading-snug text-white">{item.title}</h3>
           {item.role && (
             <p className="text-teal-300 text-sm mt-1 font-medium">{item.role}</p>
           )}
-          <p className="text-white/80 text-sm leading-5 line-clamp-2 mt-2">{item.shortDesc}</p>
+          <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/80 sm:text-sm">{item.shortDesc}</p>
         </div>
         {/* "+" button */}
         <button
@@ -122,15 +122,15 @@ function PortfolioCard({
             e.stopPropagation();
             onOpen();
           }}
-          className="absolute bottom-3 right-3 z-10 h-12 w-12 rounded-full bg-zinc-900 text-white flex items-center justify-center text-3xl font-light opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-teal-500 hover:scale-110"
+          className="absolute bottom-3 right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 text-2xl font-light text-white opacity-0 transition-all duration-300 group-hover:opacity-100 hover:scale-110 hover:bg-teal-500"
           aria-label={`Open details for ${item.title}`}
         >
           +
         </button>
       </div>
       {/* Title below image */}
-      <div className="px-4 py-3 border-t border-zinc-100 h-20 flex items-center">
-        <p className="text-base font-semibold text-zinc-900 leading-snug line-clamp-2">{item.title}</p>
+      <div className="flex h-14 items-center border-t border-zinc-100 px-3 py-2.5">
+        <p className="line-clamp-2 text-sm font-semibold leading-snug text-zinc-900">{item.title}</p>
       </div>
     </div>
   );
@@ -632,7 +632,7 @@ export default function Home() {
         ref={portfolioSectionRef}
         className="relative bg-[#e7eaed] py-24 text-zinc-900"
       >
-        <div className="mx-auto w-full max-w-[1320px] px-8 sm:pl-28 lg:pl-40">
+        <div className="mx-auto w-full max-w-[1380px] px-6 sm:px-8 sm:pl-28 lg:px-8 lg:pl-36 xl:px-10 xl:pl-40">
           {portfolioLoaded ? (
             <div>
               <div className="mb-12 text-center">
@@ -641,7 +641,7 @@ export default function Home() {
                 <div className="mx-auto mt-10 h-[3px] w-full max-w-6xl bg-teal-600/90" />
               </div>
 
-              <div className="mx-auto mb-12 flex w-full max-w-[88rem] items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20 rounded-full bg-[#0e8a7b] px-4 sm:px-8 md:px-10 py-3 shadow-sm">
+              <div className="mx-auto mb-12 flex w-full max-w-[96rem] items-center justify-center gap-6 sm:gap-10 md:gap-14 lg:gap-20 xl:gap-24 rounded-full bg-[#0e8a7b] px-6 sm:px-10 md:px-12 py-3 shadow-sm">
                 {portfolioFilters.map((filter) => {
                   const isActive = portfolioFilter === filter.key;
 
@@ -668,14 +668,14 @@ export default function Home() {
                 })}
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {displayPortfolioCards.map((card, index) => {
                   const spec = portfolioAnimationSpecs[index];
 
                   return (
                     <div
                       key={`${card.key}-${portfolioAnimationCycle}`}
-                      className={`portfolio-scatter-card h-64 ${portfolioCardsVisible ? "is-visible" : ""}`}
+                      className={`portfolio-scatter-card h-48 sm:h-52 ${portfolioCardsVisible ? "is-visible" : ""}`}
                       style={{
                         ["--card-x" as string]: `${spec?.x ?? 0}px`,
                         ["--card-y" as string]: `${spec?.y ?? 0}px`,
@@ -694,11 +694,11 @@ export default function Home() {
             <div className="space-y-8">
               <div className="mx-auto h-12 w-56 animate-pulse rounded-xl bg-zinc-300/80" />
               <div className="mx-auto h-[3px] w-full max-w-[1400px] bg-teal-600/50" />
-              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {Array.from({ length: 8 }).map((_, index) => (
                   <div
                     key={index}
-                    className="h-72 animate-pulse rounded-2xl border border-zinc-300 bg-white/60"
+                    className="h-48 sm:h-52 animate-pulse rounded-2xl border border-zinc-300 bg-white/60"
                   />
                 ))}
               </div>
