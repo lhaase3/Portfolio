@@ -476,7 +476,7 @@ export default function GitHubProfile() {
                           {repo.name}
                         </h4>
                         <p className="mt-2 min-h-[3.5rem] max-w-[34ch] text-[0.95rem] leading-8 text-zinc-600 sm:text-[1rem]">
-                          {repo.description ?? "No description available"}
+                          {repo.description ?? "No description"}
                         </p>
                       </div>
 

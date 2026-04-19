@@ -16,7 +16,8 @@ export const navItems = [
       "satmon",
       "GET_server", 
       "caching_proxy",
-      "rubiks-cube-AI"
+      "rubiks-cube-AI",
+      "mars-rover-project"
     ]
   };
   
