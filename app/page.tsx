@@ -23,6 +23,7 @@ import { MdWorkOutline } from "react-icons/md";
 import LeftRailNav from "@/components/ui/LeftRailNav";
 import ParticleNetworkBackground from "@/components/ui/ParticleNetworkBackground";
 import GitHubProfile from "@/components/GitHubProfile";
+import CurrentActivity from "@/components/CurrentActivity";
 import ResumeSection from "@/components/ResumeSection";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
@@ -436,6 +437,7 @@ export default function Home() {
           { id: "home", label: "Home", icon: <FaHome /> },
           { id: "about", label: "About", icon: <FaUser /> },
           { id: "portfolio", label: "Portfolio", icon: <MdWorkOutline /> },
+          // { id: "current-activity", label: "Current Activity", icon: <FaBriefcase /> },
           { id: "resume", label: "Resume", icon: <FaRegFileAlt /> },
         ]}
       />
@@ -707,6 +709,7 @@ export default function Home() {
         </div>
       </section>
 
+      <CurrentActivity />
       <GitHubProfile />
       <ResumeSection />
       
