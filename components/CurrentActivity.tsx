@@ -6,10 +6,10 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState, useRef } from "react";
-// Simple intersection observer hook with typing for strict TS/Next.js
+// Simple intersection observer hook with correct typing for React strict mode
 import type { RefObject } from "react";
-function useInView(threshold = 0.15): [RefObject<HTMLDivElement>, boolean] {
-  const ref = useRef<HTMLDivElement>(null);
+function useInView(threshold = 0.15): [RefObject<HTMLDivElement | null>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const node = ref.current;
