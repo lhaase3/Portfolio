@@ -6,9 +6,10 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState, useRef } from "react";
-// Simple intersection observer hook
-function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+// Simple intersection observer hook with typing for strict TS/Next.js
+import type { RefObject } from "react";
+function useInView(threshold = 0.15): [RefObject<HTMLDivElement>, boolean] {
+  const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const node = ref.current;
@@ -88,11 +89,18 @@ export default function CurrentActivity() {
   const newsletterInViewTuple = useInView();
   const newsletterRef = newsletterInViewTuple[0];
   const newsletterInView = newsletterInViewTuple[1];
+  const headerInViewTuple = useInView();
+  const headerRef = headerInViewTuple[0];
+  const headerInView = headerInViewTuple[1];
 
   return (
     <section id="current-activity" className="relative bg-[#e7eaed] py-24 text-zinc-900">
       <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 sm:pl-28 sm:pr-8 lg:pl-40 lg:pr-10">
-        <div className="mb-14 text-center">
+        <div
+          ref={headerRef}
+          className={`mb-14 text-center transition-all duration-700 ease-out transform
+            ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Current Activity</h2>
           <div className="mx-auto mt-4 h-[3px] w-36 bg-teal-700" />
           <div className="mx-auto mt-8 h-[3px] w-full max-w-6xl bg-teal-600/90" />
