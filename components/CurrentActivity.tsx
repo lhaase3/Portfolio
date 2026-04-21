@@ -181,7 +181,7 @@ export default function CurrentActivity() {
               <span className="font-semibold text-teal-700">See page 8</span> for a summary of how GreekList improved rush this year, as highlighted by the Interfraternity Council.
             </p>
             <a
-              href="/IFC2025Newsletter.pdf"
+              href={`${BASE}/IFC2025Newsletter.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 rounded-full bg-teal-700 px-7 py-3 text-base font-semibold text-white shadow hover:bg-teal-800 transition-colors"
